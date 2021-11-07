@@ -37,15 +37,15 @@ public class Signin extends AppCompatActivity {
             public void onClick(View view) {
                 String txtEmail=txtEmaillLogin.getText().toString();
                 String txtPassword=txtPassLogin.getText().toString();
-                if(txtEmail.equals("admin@gmail.com")  && txtPassword.equals("admin"))
-                {
-                    startActivity(new Intent(Signin.this, Home.class));
-                }
-                else{
-                    Toast.makeText(Signin.this, "Email or Password is incorrect!", Toast.LENGTH_SHORT).show();
-                }
-//                Intent intent =new Intent(Signin.this,Home.class);
-//                startActivity(intent);
+//                if(txtEmail.equals("admin@gmail.com")  && txtPassword.equals("admin"))
+//                {
+//                    startActivity(new Intent(Signin.this, Home.class));
+//                }
+//                else{
+//                    Toast.makeText(Signin.this, "Email or Password is incorrect!", Toast.LENGTH_SHORT).show();
+//                }
+                Intent intent =new Intent(Signin.this,Home.class);
+                startActivity(intent);
             }
         });
 
