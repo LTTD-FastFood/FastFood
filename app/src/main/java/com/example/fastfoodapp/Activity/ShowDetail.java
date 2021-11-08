@@ -34,7 +34,6 @@ public class ShowDetail extends AppCompatActivity {
 
         AnhXa();
         cainaylahome();
-//        cainaylaListProduct();
         cainaylaNut();
 
 
@@ -42,7 +41,7 @@ public class ShowDetail extends AppCompatActivity {
     }
 
     private void cainaylahome() {
-        //Nhận dữ liệu từ Intent
+
         Intent intent = this.getIntent();
         if (intent != null){
 
