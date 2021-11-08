@@ -67,7 +67,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
                         android:layout_marginTop="20dp"
-                        android:text="VvvV"
+                        android:text="Abcd"
                         android:textColor="@color/black"
                         android:textSize="20dp"
                         android:textStyle="bold" />
@@ -95,7 +95,7 @@
                         android:layout_height="wrap_content"
 
 
-                        android:text="(+84) 869 142 565 "
+                        android:text="(+84) 869 123 565 "
                         android:textColor="#808080"
                         android:textSize="16dp" />
 55

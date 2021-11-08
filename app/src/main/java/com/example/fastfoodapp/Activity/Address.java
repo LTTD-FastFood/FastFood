@@ -18,7 +18,7 @@ public class Address extends AppCompatActivity {
 
         btnBack=(TextView) findViewById(R.id.btnBack);
 
-//      handleClickBack
+//      Check
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
