@@ -139,9 +139,9 @@
                         <androidx.viewpager.widget.ViewPager
                             android:id="@+id/viewPage"
                             android:layout_width="360dp"
-                            android:background="@drawable/edt_find"
                             android:layout_height="match_parent"
-                            android:layout_marginLeft="1dp" />
+                            android:layout_marginLeft="1dp"
+                            android:background="@drawable/edt_find" />
 
 
                     </LinearLayout>
