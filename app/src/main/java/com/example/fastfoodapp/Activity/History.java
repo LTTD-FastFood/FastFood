@@ -30,7 +30,7 @@ public class History extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityHistoryBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
+        //Check out my name
         CainaylaNut();
 
         String[] ten ={"Bánh Donut","Bánh sandwich","Xúc xích"};
