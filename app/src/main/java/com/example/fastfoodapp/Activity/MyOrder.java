@@ -31,7 +31,7 @@ public class MyOrder extends AppCompatActivity {
         binding = ActivityMyOrderBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
+//    CheckOrder
 
         String[] ten ={"Bánh donut","Bánh sandwich","Xúc xích"};
         int[] hinh = {R.drawable.donut,R.drawable.xucxich,R.drawable.donut};
