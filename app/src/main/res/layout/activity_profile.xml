@@ -75,7 +75,7 @@
             android:layout_height="55dp"
             android:paddingLeft="45dp"
             android:paddingTop="15dp"
-            android:text="Lisa Ronaldo"
+            android:text="Ronaldo123"
             android:textColor="#747171"
             android:textSize="18dp" />
     </LinearLayout>

@@ -28,6 +28,8 @@ public class Profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+
+        //Check out
         edit=(Button) findViewById(R.id.edit);
         btnSignOut=(Button) findViewById(R.id.btnSignOut);
         name=(EditText) findViewById(R.id.name);
