@@ -76,7 +76,7 @@
                 android:layout_marginTop="60dp"
                 android:textColor="@color/white"
                 android:text="1"
-                android:textSize="18dp"
+                android:textSize="19dp"
                 android:textStyle="bold" />
 
         </LinearLayout>
