@@ -36,8 +36,6 @@ public class ShowDetail extends AppCompatActivity {
         cainaylahome();
         cainaylaNut();
 
-
-
     }
 
     private void cainaylahome() {

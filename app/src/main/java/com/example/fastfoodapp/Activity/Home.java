@@ -43,6 +43,7 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
         cainaylaViewPager();
         cainaylaNut();
         CainaylaListView();
@@ -122,6 +123,7 @@ public class Home extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Home.this, MyCart.class));
+                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
             }
         });
 
