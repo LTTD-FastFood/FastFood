@@ -67,10 +67,11 @@ public class Signin extends AppCompatActivity {
 //                }
                 Intent intent =new Intent(Signin.this,Home.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_down,R.anim.slide_out_down);
+
             }
         });
 
-
-
     }
+
 }
