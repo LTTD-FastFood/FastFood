@@ -94,6 +94,13 @@ public class ListProduct extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
+
+    }
+
     private void cainaylaNut() {
         btnBackList=(TextView) findViewById(R.id.btnBackList);
         btnBackList.setOnClickListener(new View.OnClickListener() {
