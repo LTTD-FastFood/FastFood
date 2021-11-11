@@ -30,6 +30,7 @@ public class Signin extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Signin.this, SignUp.class));
+                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
             }
         });
 
@@ -67,7 +68,7 @@ public class Signin extends AppCompatActivity {
 //                }
                 Intent intent =new Intent(Signin.this,Home.class);
                 startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_down,R.anim.slide_out_down);
+                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
             }
         });
