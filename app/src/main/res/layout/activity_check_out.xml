@@ -150,8 +150,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="48dp"
-                android:text="Phí thu hộ: 0đ"
-                android:textSize="16dp" />
+                android:text="Phí thu hộ: 15000đ"
+                android:textSize="15dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
