@@ -20,9 +20,12 @@ import com.example.fastfoodapp.Object.MonAn;
 import com.example.fastfoodapp.R;
 
 import java.util.ArrayList;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 public class MonAnListAdapter extends ArrayAdapter<MonAn> {
 
+    private String gia_format;
 
     public MonAnListAdapter(@NonNull Context context, ArrayList<MonAn> monAnListArrayList) {
         super(context, R.layout.layout_monan,monAnListArrayList);
@@ -48,7 +51,8 @@ public class MonAnListAdapter extends ArrayAdapter<MonAn> {
 
         ten.setText(monAn.getTenMon());
         size.setText(monAn.getSize());
-        gia.setText(monAn.getGia());
+        gia_format=NumberFormat.getNumberInstance(Locale.US).format(monAn.getGia());
+        gia.setText(gia_format+"đ");
 
         anh.setImageResource(monAn.getHinhMon());
         add.setOnClickListener(new View.OnClickListener() {

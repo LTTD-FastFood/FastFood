@@ -2,18 +2,25 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.fastfoodapp">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
+        android:usesCleartextTraffic="true"
         android:label="FastFood"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.FastFoodApp">
+        android:theme="@style/Theme.FastFoodApp"
+        android:networkSecurityConfig="@xml/network_security_config">
         <activity
             android:name=".Activity.CheckOut"
             android:exported="true" />
         <activity
             android:name=".Activity.Address"
+            android:label="ĐỊA CHỈ NHẬN HÀNG"
+            android:parentActivityName=".Activity.MyOrder"
             android:exported="true" />
         <activity
             android:name=".Activity.MyOrder"
@@ -26,6 +33,9 @@
             android:exported="true" />
         <activity
             android:name=".Activity.Profile"
+            android:parentActivityName=".Activity.Home"
+            android:theme = "@style/MyEditProfile"
+            android:label="HỒ SƠ"
             android:exported="true" />
         <activity
             android:name=".Activity.ListProduct"

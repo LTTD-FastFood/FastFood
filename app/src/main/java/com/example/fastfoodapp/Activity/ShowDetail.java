@@ -46,8 +46,8 @@ public class ShowDetail extends AppCompatActivity {
             int hinh = intent.getIntExtra("hinh",R.drawable.buger);
             String ten = intent.getStringExtra("ten");
             Double sao = intent.getDoubleExtra("sao",4.5);
-            String calo = intent.getStringExtra("calo");
-            String gia = intent.getStringExtra("gia");
+            int calo = intent.getIntExtra("calo",150);
+            int gia = intent.getIntExtra("gia",130);
             String mota = intent.getStringExtra("Mota");
             int anhMot = intent.getIntExtra("anhMot",R.drawable.cachua);
             int anhHai = intent.getIntExtra("anhHai",R.drawable.cachua);
@@ -58,7 +58,7 @@ public class ShowDetail extends AppCompatActivity {
             binding.foodTxt.setText(ten);
             binding.txtSao.setText(sao.toString());
             binding.calotxt.setText(calo + " Calories");
-            binding.txtGia.setText(gia);
+            binding.txtGia.setText(gia+"");
             binding.txtMota.setText(mota);
             binding.imgTp1.setImageResource(anhMot);
             binding.imgTp2.setImageResource(anhHai);
@@ -66,33 +66,6 @@ public class ShowDetail extends AppCompatActivity {
             binding.imgTp4.setImageResource(anhBon);
         }
     }
-
-//    private void cainaylaListProduct() {
-//        Intent intent = this.getIntent();
-//        if (intent != null){
-//            int anh1=intent.getIntExtra("Anh1",R.drawable.buger);
-//            String ten1 = intent.getStringExtra("Ten1");
-//            Double sao=intent.getDoubleExtra("Star",4.5);
-//            int calo = intent.getIntExtra("Calo",120);
-//            String npr =intent.getStringExtra("Npr");
-//            String mota = intent.getStringExtra("Mota");
-//            int anhMot = intent.getIntExtra("anhMot",R.drawable.cachua);
-//            int anhhai = intent.getIntExtra("anhHai",R.drawable.cachua);
-//            int anhBa = intent.getIntExtra("anhba",R.drawable.cachua);
-//            int anhBon = intent.getIntExtra("anhBon",R.drawable.cachua);
-//
-//            binding.foodPic.setImageResource(anh1);
-//            binding.foodTxt.setText(ten1);
-//            binding.txtSao.setText(sao.toString());
-//            binding.calotxt.setText(calo + " Calories");
-//            binding.txtGia.setText(npr);
-//            binding.txtMota.setText(mota);
-//            binding.imgTp1.setImageResource(anhMot);
-//            binding.imgTp2.setImageResource(anhhai);
-//            binding.imgTp3.setImageResource(anhBa);
-//            binding.imgTp4.setImageResource(anhBon);
-//        }
-//    }
 
 
     private void cainaylaNut() {

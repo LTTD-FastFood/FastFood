@@ -34,12 +34,12 @@ public class ListProduct extends AppCompatActivity {
         String[] ten ={"Bánh mì kẹp","Gà rán","Bánh mì","Khoai tây","Xúc xích","Bánh pizza", "Bánh donut","Bánh sandwich","Combo"};
         int[] hinh = {R.drawable.buger,R.drawable.ga,R.drawable.hotdog,R.drawable.chip,R.drawable.xucxich,R.drawable.pizza1,
                 R.drawable.donut,R.drawable.sw,R.drawable.combo};
-        String[] calo ={"250","400","300","220","200","160","150","150","220"};
+        int[] calo ={250,400,300,220,200,160,150,150,220};
         String[] size= {"S","M","L","S","XXL","S","M","S","L"};
-        String[] gia= {"50.000đ","50.000đ","50.000đ","50.000đ","50.000đ","50.000đ","50.000đ","50.000đ","50.000đ"};
-        String[] tong= {"0đ","0đ","0đ","0đ","0đ","0đ","0đ","0đ","0đ"};
+        int[] gia= {50000,50000,50000,50000,50000,50000,50000,50000,50000};
+        int[] tong= {0,0,0,0,0,0,0,0,0};
         Double[] sao={4.6,4.6,4.6,4.6,4.6,4.6,4.6,4.6,4.6};
-        String[] Mota={"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim..",
+        String[] Mota={"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim.",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim. Fusce est.",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim. Fusce est",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus.",

@@ -6,10 +6,10 @@ public class LichSu {
     private String thoiGian;
     private int Anh;
     private String Mota;
-    private String gia;
+    private int gia;
     private String calories;
     private Double sao;
-    private String Tong;
+    private int Tong;
     private String ingredient;
     private String size;
     private int anhMot;
@@ -18,7 +18,7 @@ public class LichSu {
     private int anhBon;
 
 
-    public LichSu(String ten, String thoiGian, int anh, String mota, String gia, String calories, Double sao, String tong, String ingredient, String size, int anhMot, int anhHai, int anhBa, int anhBon) {
+    public LichSu(String ten, String thoiGian, int anh, String mota, int gia, String calories, Double sao, int tong, String ingredient, String size, int anhMot, int anhHai, int anhBa, int anhBon) {
         this.ten = ten;
         this.thoiGian = thoiGian;
         Anh = anh;
@@ -68,11 +68,11 @@ public class LichSu {
         Mota = mota;
     }
 
-    public String getGia() {
+    public int getGia() {
         return gia;
     }
 
-    public void setGia(String gia) {
+    public void setGia(int gia) {
         this.gia = gia;
     }
 
@@ -92,11 +92,11 @@ public class LichSu {
         this.sao = sao;
     }
 
-    public String getTong() {
+    public int getTong() {
         return Tong;
     }
 
-    public void setTong(String tong) {
+    public void setTong(int tong) {
         Tong = tong;
     }
 

@@ -5,11 +5,11 @@ import java.io.Serializable;
 public class MonAn implements Serializable {
     private String tenMon;
     private int hinhMon;
-    private String calories;
+    private int calories;
     private Double sao;
     private String size;
-    private String gia;
-    private String Tong;
+    private int gia;
+    private int Tong;
     private String moTa;
     private String ingredient;
     private int anhMot;
@@ -18,7 +18,7 @@ public class MonAn implements Serializable {
     private int anhBon;
     private int quantity;
 
-    public MonAn(String tenMon, int hinhMon, String calories, Double sao, String size, String gia, String tong, String moTa, String ingredient, int anhMot, int anhHai, int anhBa, int anhBon, int quantity) {
+    public MonAn(String tenMon, int hinhMon, int calories, Double sao, String size, int gia, int tong, String moTa, String ingredient, int anhMot, int anhHai, int anhBa, int anhBon, int quantity) {
         this.tenMon = tenMon;
         this.hinhMon = hinhMon;
         this.calories = calories;
@@ -51,11 +51,11 @@ public class MonAn implements Serializable {
         this.hinhMon = hinhMon;
     }
 
-    public String getCalories() {
+    public int getCalories() {
         return calories;
     }
 
-    public void setCalories(String calories) {
+    public void setCalories(int calories) {
         this.calories = calories;
     }
 
@@ -75,19 +75,19 @@ public class MonAn implements Serializable {
         this.size = size;
     }
 
-    public String getGia() {
+    public int getGia() {
         return gia;
     }
 
-    public void setGia(String gia) {
+    public void setGia(int gia) {
         this.gia = gia;
     }
 
-    public String getTong() {
+    public int getTong() {
         return Tong;
     }
 
-    public void setTong(String tong) {
+    public void setTong(int tong) {
         Tong = tong;
     }
 

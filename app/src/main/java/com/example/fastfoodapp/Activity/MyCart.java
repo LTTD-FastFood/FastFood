@@ -41,10 +41,10 @@ public class MyCart extends AppCompatActivity {
 
         String[] ten ={"Bánh donut","Bánh sandwich","Xúc xích"};
         int[] hinh = {R.drawable.donut,R.drawable.sw,R.drawable.xucxich};
-        String[] calo ={"200","200","200"};
+        int[] calo ={200,200,200};
         String[] size= {"S","S","S"};
-        String[] gia= {"50000","50000","50000"};
-        String[] tong= {"50000","150000","100000"};
+        int[] gia= {50000,50000,50000};
+        int[] tong= {50000,150000,100000};
         Double[] sao={4.6,4.6,4.6};
         String[] ingredient={"hoa","la","canh"};
 

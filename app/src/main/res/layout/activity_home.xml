@@ -92,7 +92,6 @@
                     android:textColor="@color/textColor"
                     android:textSize="16dp"
                     tools:textColorHint="@color/textColor" />
-
                 <TextView
                     android:layout_width="30dp"
                     android:layout_height="30dp"

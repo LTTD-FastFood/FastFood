@@ -22,6 +22,7 @@
             android:orientation="vertical">
 
             <ImageView
+                android:id="@+id/toimot"
                 android:layout_width="60dp"
                 android:layout_height="80dp"
                 android:layout_gravity="center"
@@ -45,6 +46,7 @@
             android:orientation="vertical">
 
             <ImageView
+                android:id="@+id/toihai"
                 android:layout_gravity="center"
                 android:layout_width="60dp"
                 android:layout_height="80dp"
@@ -68,6 +70,7 @@
             android:orientation="vertical">
 
             <ImageView
+                android:id="@+id/toiba"
                 android:layout_width="60dp"
                 android:layout_height="80dp"
                 android:layout_gravity="center"
@@ -91,7 +94,7 @@
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/toibon"
                 android:layout_width="60dp"
                 android:layout_height="80dp"
                 android:layout_gravity="center"

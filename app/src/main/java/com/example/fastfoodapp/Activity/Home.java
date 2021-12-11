@@ -32,8 +32,9 @@ public class Home extends AppCompatActivity {
 
     ActivityHomeBinding binding;
 
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
+     TabLayout tabLayout;
+     ViewPager viewPager;
+
     CircleImageView profile_image;
     TextView myCart;
     RelativeLayout btnProfile,btnHistory,btnProduct;
@@ -54,11 +55,11 @@ public class Home extends AppCompatActivity {
 
         String[] ten ={"Bánh mì kẹp","Bánh pizza","Bánh donut"};
         int[] hinh ={R.drawable.burger3,R.drawable.pizza,R.drawable.donut1};
-        String[] calo ={"200","200","200"};
+        int[] calo ={200,200,200};
         Double[] sao = {4.9,4.9,4.9};
         String[] size= {"S","S","S"};
-        String[] gia = {"150.000đ","150.000đ","150.000đ"};
-        String[] tong= {"0đ","0đ","0đ"};
+        int[] gia = {150000,150000,150000};
+        int[] tong= {0,0,0};
         String[] Mota={"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus.",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus.",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus."};
@@ -107,8 +108,9 @@ public class Home extends AppCompatActivity {
 
         tabLayout=findViewById(R.id.tabLayout);
         viewPager=findViewById(R.id.viewPage);
+
         tabLayout.setupWithViewPager(viewPager);
-        VPAdapter vpAdapter=new VPAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        VPAdapter vpAdapter=new VPAdapter(getSupportFragmentManager());
         vpAdapter.addFragment(new Breakfast(),"Bữa sáng");
         vpAdapter.addFragment(new Lunch(),"Bữa trưa");
         vpAdapter.addFragment(new Dinner(),"Bữa tối");

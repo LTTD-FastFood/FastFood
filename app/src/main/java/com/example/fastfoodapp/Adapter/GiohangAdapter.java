@@ -63,27 +63,27 @@ public class GiohangAdapter extends ArrayAdapter<MonAn> {
         value.setText(String.valueOf(count));
 
 
-        txtTong= Integer.parseInt(monAn.getTong());
-        txtGia= Integer.parseInt(monAn.getGia());
+        txtTong= monAn.getTong();
+        txtGia= monAn.getGia();
 
-        tong_format=NumberFormat.getNumberInstance(Locale.US).format(Integer.parseInt(monAn.getTong()));
+        tong_format=NumberFormat.getNumberInstance(Locale.US).format(monAn.getTong());
         tong.setText(tong_format);
 //        gia.setText(String.valueOf(txtGia));
-        gia_format=NumberFormat.getNumberInstance(Locale.US).format(Integer.parseInt(monAn.getGia()));
+        gia_format=NumberFormat.getNumberInstance(Locale.US).format(monAn.getGia());
         gia.setText(gia_format);
 
         plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                txtTong= Integer.parseInt(monAn.getTong());
+                txtTong= monAn.getTong();
                 count=monAn.getQuantity();
                 count+=1;
                 txtTong=txtGia*count;
 
                 monAn.setQuantity(count);
-                monAn.setTong((String.valueOf(txtTong)));
+                monAn.setTong(txtTong);
                 value.setText(String.valueOf(count));
-                tong_format=NumberFormat.getNumberInstance(Locale.US).format(Integer.parseInt(monAn.getTong()));
+                tong_format=NumberFormat.getNumberInstance(Locale.US).format(monAn.getTong());
                 tong.setText(tong_format);
 //                tong.setText(monAn.getTong());
             }
@@ -93,7 +93,7 @@ public class GiohangAdapter extends ArrayAdapter<MonAn> {
             public void onClick(View view) {
 
                 count=monAn.getQuantity();
-                txtTong= Integer.parseInt(monAn.getTong());
+                txtTong= monAn.getTong();
 
 
                 if(count <= 1) {
@@ -104,9 +104,9 @@ public class GiohangAdapter extends ArrayAdapter<MonAn> {
                     txtTong=txtGia*count;
                 }
                 monAn.setQuantity(count);
-                monAn.setTong((String.valueOf(txtTong)));
+                monAn.setTong(txtTong);
                 value.setText(String.valueOf(count));
-                tong_format=NumberFormat.getNumberInstance(Locale.US).format(Integer.parseInt(monAn.getTong()));
+                tong_format=NumberFormat.getNumberInstance(Locale.US).format(monAn.getTong());
                 tong.setText(tong_format);
             }
         });

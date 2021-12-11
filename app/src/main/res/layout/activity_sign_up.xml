@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Activity.SignUp"
     android:background="@color/backgroundMain"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
     <ImageView
         android:layout_width="wrap_content"
@@ -38,7 +37,6 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
             android:layout_weight="1"
             android:gravity="center"
             android:text="Tạo tài khoản để tiếp tục!"
@@ -54,6 +52,42 @@
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:orientation="vertical">
+        <TextView
+            android:id="@+id/labelName"
+            android:layout_width="369dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Họ và tên"
+            android:textColor="@color/textColor"
+            android:textFontWeight="700"
+            android:textSize="17dp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputLayout
+                app:startIconDrawable="@drawable/icon_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:background="@drawable/edit_radius"
+                    android:id="@+id/txtName"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:inputType="textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="357dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/labelEmail"
@@ -68,64 +102,19 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <EditText
-                android:id="@+id/txtEmail"
+            <com.google.android.material.textfield.TextInputLayout
+                app:startIconDrawable="@drawable/icon_mail"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/edit_radius"
-                android:paddingLeft="50dp"
-                android:singleLine="true"
-                android:textColor="@color/textColor"
-                android:textSize="16dp"
-                tools:ignore="SpeakableTextPresentCheck" />
-            <TextView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="14dp"
-                android:layout_marginTop="15dp"
-                android:background="@drawable/icon_mail" />
-        </RelativeLayout>
+                android:layout_height="wrap_content">
 
-    </LinearLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:background="@drawable/edit_radius"
+                    android:id="@+id/txtEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:inputType="textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <LinearLayout
-        android:layout_width="357dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="8dp"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/labelName"
-            android:layout_width="369dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Họ và tên"
-            android:textColor="@color/textColor"
-            android:textFontWeight="700"
-            android:textSize="17dp" />
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <EditText
-                android:id="@+id/txtName"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/edit_radius"
-                android:paddingLeft="50dp"
-                android:singleLine="true"
-                android:textColor="@color/textColor"
-                android:textSize="16dp"
-                tools:ignore="SpeakableTextPresentCheck" />
-
-            <TextView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="14dp"
-                android:layout_marginTop="15dp"
-                android:background="@drawable/icon_user" />
         </RelativeLayout>
 
     </LinearLayout>
@@ -149,43 +138,21 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <EditText
-                android:id="@+id/txtPass"
+            <com.google.android.material.textfield.TextInputLayout
+                app:passwordToggleEnabled="true"
+                app:startIconDrawable="@drawable/ic_baseline_lock_24"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/edit_radius"
-                android:inputType="textPassword"
-                android:lines="1"
-                android:paddingLeft="50dp"
-                android:singleLine="true"
-                android:textColor="@color/textColor"
-                android:textSize="16dp"
-                tools:ignore="SpeakableTextPresentCheck" />
+                android:layout_height="wrap_content">
 
-
-            <TextView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="14dp"
-                android:layout_marginTop="15dp"
-                android:background="@drawable/ic_baseline_lock_24" />
-
-            <CheckBox
-                android:id="@+id/passBtn1"
-
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="6dp"
-                android:layout_marginRight="4dp"
-                android:button="@drawable/check_hint_password"
-                android:textSize="18dp" />
-
+                <com.google.android.material.textfield.TextInputEditText
+                    android:background="@drawable/edit_radius"
+                    android:id="@+id/txtPass"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
 
         </RelativeLayout>
-
-
 
     </LinearLayout>
     <LinearLayout
@@ -207,43 +174,21 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <EditText
-                android:id="@+id/txtPass1"
+            <com.google.android.material.textfield.TextInputLayout
+                app:passwordToggleEnabled="true"
+                app:startIconDrawable="@drawable/ic_baseline_lock_24"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/edit_radius"
-                android:inputType="textPassword"
-                android:lines="1"
-                android:paddingLeft="50dp"
-                android:singleLine="true"
-                android:textColor="@color/textColor"
-                android:textSize="16dp"
-                tools:ignore="SpeakableTextPresentCheck" />
+                android:layout_height="wrap_content">
 
-
-            <TextView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="14dp"
-                android:layout_marginTop="15dp"
-                android:background="@drawable/ic_baseline_lock_24" />
-
-            <CheckBox
-                android:id="@+id/passBtn"
-
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="6dp"
-                android:layout_marginRight="4dp"
-                android:button="@drawable/check_hint_password"
-                android:textSize="18dp" />
-
+                <com.google.android.material.textfield.TextInputEditText
+                    android:background="@drawable/edit_radius"
+                    android:id="@+id/txtPassConf"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
 
         </RelativeLayout>
-
-
 
     </LinearLayout>
     <CheckBox
@@ -255,12 +200,12 @@
         android:button="@drawable/custom_checkbox"
         android:minHeight="30dp"
         android:paddingLeft="5dp"
-        android:text="Bạn đồng ý với chính sách và điêu kiện  không?"
+        android:text="Bạn đồng ý với chính sách và điều kiện  không?"
         android:textColor="@color/textColor"
         android:textSize="16dp" />
 
     <Button
-        android:id="@+id/signUp"
+        android:id="@+id/btnSignUp"
         android:layout_width="365dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -298,11 +243,5 @@
 
 
     </LinearLayout>
-
-
-
-
-
-
 
 </LinearLayout>

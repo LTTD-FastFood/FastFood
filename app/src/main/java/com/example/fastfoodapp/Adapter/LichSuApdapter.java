@@ -16,9 +16,13 @@ import com.example.fastfoodapp.Object.LichSu;
 import com.example.fastfoodapp.Object.MonAn;
 import com.example.fastfoodapp.R;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class LichSuApdapter extends ArrayAdapter<LichSu> {
+
+    private String price_format;
 
     public LichSuApdapter(@NonNull Context context, ArrayList<LichSu> lichSuArrayList) {
         super(context, R.layout.layout_dong,lichSuArrayList);
@@ -44,7 +48,8 @@ public class LichSuApdapter extends ArrayAdapter<LichSu> {
         ten.setText(lichSu.getTen());
         time.setText(lichSu.getThoiGian());
         description.setText(lichSu.getIngredient());
-        price.setText(lichSu.getGia());
+        price_format=NumberFormat.getNumberInstance(Locale.US).format(lichSu.getGia());
+        price.setText(price_format+"đ");
         hinh.setImageResource(lichSu.getAnh());
 
         return convertView;

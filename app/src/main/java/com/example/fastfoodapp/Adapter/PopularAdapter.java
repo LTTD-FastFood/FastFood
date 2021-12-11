@@ -15,9 +15,13 @@ import com.example.fastfoodapp.Object.MonAn;
 import com.example.fastfoodapp.R;
 
 import java.util.ArrayList;
+import java.text.NumberFormat;
+import java.util.Locale;
+
 
 public class PopularAdapter extends ArrayAdapter<MonAn> {
 
+    private String gia_format;
 
     public PopularAdapter(@NonNull Context context, ArrayList<MonAn> monAnArrayList) {
         super(context,  R.layout.row_recycler,monAnArrayList);
@@ -40,7 +44,8 @@ public class PopularAdapter extends ArrayAdapter<MonAn> {
 
         imgHinh.setImageResource(monAn.getHinhMon());
         txtTen.setText(monAn.getTenMon());
-        txtGia.setText(monAn.getGia());
+        gia_format=NumberFormat.getNumberInstance(Locale.US).format(monAn.getGia());
+        txtGia.setText(gia_format+"đ");
         txtSao.setText(monAn.getSao().toString());
 
         return convertView;

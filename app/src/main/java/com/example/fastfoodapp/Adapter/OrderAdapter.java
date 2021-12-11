@@ -41,7 +41,7 @@ public String giaformat;
         ImageView anh = convertView.findViewById(R.id.imageviewAnh);
 
         ten.setText(monAn.getTenMon());
-        giaformat=NumberFormat.getNumberInstance(Locale.US).format(Integer.parseInt(monAn.getGia()));
+        giaformat=NumberFormat.getNumberInstance(Locale.US).format(monAn.getGia());
         gia.setText(giaformat);
 
         soluong.setText(monAn.getQuantity()+"");
