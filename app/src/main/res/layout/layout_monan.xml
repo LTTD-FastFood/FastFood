@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:descendantFocusability="blocksDescendants"
+    android:layout_width="match_parent"
+    android:layout_marginBottom="5dp"
+    android:background="#ffffff"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/imageviewAnh"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:src="@mipmap/ic_launcher" />
+
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_width="70dp"
+        android:layout_height="32dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="23dp"
+        android:background="#59C1A4"
+        android:text="Thêm"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="95dp"
+        android:layout_marginTop="10dp"
+        android:text="Burger King"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/packsize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="95dp"
+        android:layout_marginTop="50dp"
+        android:text="ĐÁNH GIÁ"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/star"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="95dp"
+        android:layout_marginTop="70dp"
+        android:text="4.9"
+        android:textSize="14dp"
+        android:textStyle="bold" />
+    <ImageView
+        android:src="@drawable/ic_star"
+        android:layout_marginTop="68dp"
+        android:layout_toRightOf="@id/star"
+        android:layout_marginRight="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/pretium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="144dp"
+        android:text="GIÁ"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/gia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="210dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="141dp"
+        android:text="50.000VND"
+        android:textSize="14dp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

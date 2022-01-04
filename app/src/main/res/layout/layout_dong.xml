@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="130dp"
+    android:paddingRight="10dp"
+
+    android:descendantFocusability="blocksDescendants"
+    android:paddingLeft="10dp">
+
+        <ImageView
+            android:id="@+id/hinh"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="15dp"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_marginTop="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/name"
+                            android:layout_width="190dp"
+        android:gravity="center|left"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="10dp"
+                            android:text="Chicken Tikka BanhKep"
+                            android:textColor="@color/black"
+                            android:textSize="18dp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/time"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                           android:gravity="center"
+                            android:text="26/02/2020"
+                            android:textSize="12dp"
+
+                            />
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/description"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:text="Afghani Chicken Tikka Biryani Boneless fo 1"
+                    android:textColor="#414042"
+                    android:textSize="14dp"
+
+                    />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_marginLeft="10dp"
+                            android:id="@+id/price"
+                            android:layout_width="181dp"
+                            android:layout_height="match_parent"
+                            android:gravity="center|left"
+                            android:text="500 đ"
+                            android:textColor="#248E28"
+                            android:textSize="22dp"
+                            android:textStyle="bold"
+
+                            />
+                        <Button
+                            android:id="@+id/button2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="35dp"
+
+                            android:background="@drawable/button"
+                            android:text="Đặt lại"
+                            android:textColor="#ffffff"
+
+                            />
+
+                </LinearLayout>
+
+
+        </LinearLayout>
+
+</LinearLayout>
