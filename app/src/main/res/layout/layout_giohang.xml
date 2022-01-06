@@ -1,27 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:layout_marginStart="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginEnd="10dp"
+    android:background="@drawable/edt_find"
     android:descendantFocusability="blocksDescendants"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <CheckBox
+        android:id="@+id/checkBoxk"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginLeft="1dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="30dp"
         android:buttonTint="@color/main" />
 
     <ImageView
-        android:id="@+id/imageviewAnh"
+        android:id="@+id/imgMon"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="5dp"
-         />
+        android:src="@drawable/pizza" />
 
     <LinearLayout
-        android:layout_marginLeft="270dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginLeft="125dp"
+        android:layout_marginTop="55dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -29,13 +34,13 @@
 
         <ImageView
             android:id="@+id/minusBtn"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:src="@drawable/minus" />
 
         <TextView
-            android:id="@+id/numberOrderTxt"
-            android:layout_width="40dp"
+            android:id="@+id/soluong"
+            android:layout_width="30dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="3dp"
             android:layout_marginEnd="3dp"
@@ -48,108 +53,65 @@
 
         <ImageView
             android:id="@+id/plusBtn"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:src="@drawable/plus" />
     </LinearLayout>
 
     <TextView
         android:id="@+id/ten"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_marginLeft="125dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="6dp"
         android:text="Burger King"
-        android:textSize="20dp"
+        android:textSize="18dp"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/packsize"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="125dp"
-        android:layout_marginTop="50dp"
-        android:text="SIZE"
-        android:textSize="14dp"
-        />
-
-    <TextView
-        android:id="@+id/size"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="125dp"
-        android:layout_marginTop="70dp"
-        android:text="0.2"
-        android:textSize="14dp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/pretium"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="242dp"
-        android:layout_marginTop="50dp"
-        android:text="GIÁ"
-        android:textSize="14dp" />
-
-    <TextView
-        android:id="@+id/gia"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_marginLeft="210dp"
-        android:layout_marginTop="70dp"
-        android:layout_marginEnd="140dp"
-        android:text="50.000"
-        android:textSize="14dp"
-        android:textStyle="bold" />
+<!--    <TextView-->
+<!--        android:id="@+id/pretium"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginEnd="15dp"-->
+<!--        android:text="GIÁ"-->
+<!--        android:textSize="14dp" />-->
 
 
     <TextView
-        android:id="@+id/gia_dv"
+        android:id="@+id/giaMon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_marginLeft="220dp"
-        android:layout_marginTop="70dp"
-        android:layout_marginEnd="128dp"
-        android:text="đ"
-        android:textSize="14dp"
-        android:textStyle="bold" />
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="15dp"
+        android:text="đ150,000"
+        android:textSize="18dp"
+        android:textStyle="normal" />
+
+<!--    <TextView-->
+<!--        android:id="@+id/total"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:layout_marginTop="50dp"-->
+<!--        android:layout_marginEnd="15dp"-->
+<!--        android:text="TỔNG"-->
+<!--        android:textSize="14dp" />-->
 
     <TextView
-        android:id="@+id/total"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_marginLeft="320dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="26dp"
-        android:text="TỔNG"
-        android:textSize="14dp" />
-
-    <TextView
-        android:id="@+id/txttong"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_marginLeft="323dp"
-        android:layout_marginTop="70dp"
-        android:layout_marginEnd="37dp"
-        android:text="0"
-        android:textSize="14dp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/txttong_dv"
+        android:id="@+id/tongMon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_marginLeft="323dp"
-        android:layout_marginTop="70dp"
-        android:layout_marginEnd="26dp"
-        android:text="đ"
-        android:textSize="14dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginEnd="15dp"
+        android:text="đ50.000"
+        android:textSize="18dp"
         android:textStyle="bold" />
 
 </RelativeLayout>

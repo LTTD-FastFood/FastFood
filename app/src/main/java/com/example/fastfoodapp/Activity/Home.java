@@ -1,30 +1,21 @@
 package com.example.fastfoodapp.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.fastfoodapp.Adapter.PopularAdapter;
 import com.example.fastfoodapp.Adapter.VPAdapter;
-import com.example.fastfoodapp.Object.MonAn;
 import com.example.fastfoodapp.R;
 import com.example.fastfoodapp.databinding.ActivityHomeBinding;
 import com.example.fastfoodapp.tabHome.Breakfast;
 import com.example.fastfoodapp.tabHome.Dinner;
 import com.example.fastfoodapp.tabHome.Lunch;
 import com.google.android.material.tabs.TabLayout;
-
-import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 

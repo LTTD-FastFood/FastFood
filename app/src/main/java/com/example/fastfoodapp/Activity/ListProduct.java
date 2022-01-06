@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,7 +17,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.fastfoodapp.Adapter.MonAnListAdapter;
-import com.example.fastfoodapp.Object.MonAn;
+import com.example.fastfoodapp.Model.MonAn;
 import com.example.fastfoodapp.R;
 import com.example.fastfoodapp.databinding.ActivityListProductBinding;
 import com.example.fastfoodapp.utils.Utils;
@@ -45,7 +44,7 @@ public class ListProduct extends AppCompatActivity {
     RecyclerView.LayoutManager layoutManager;
     JsonArrayRequest request;
     RequestQueue requestQueue;
-    List<MonAn> monAnList;
+    ArrayList<MonAn> monAnList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

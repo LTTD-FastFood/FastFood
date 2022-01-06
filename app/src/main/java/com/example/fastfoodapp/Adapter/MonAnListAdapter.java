@@ -3,41 +3,37 @@ package com.example.fastfoodapp.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.fastfoodapp.Activity.MainActivity;
+import com.example.fastfoodapp.Activity.MyCart;
 import com.example.fastfoodapp.Activity.ShowDetail;
-import com.example.fastfoodapp.Object.MonAn;
+import com.example.fastfoodapp.Model.MonAn;
 import com.example.fastfoodapp.R;
 
-import java.util.ArrayList;
 import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
 public class MonAnListAdapter extends RecyclerView.Adapter<MonAnListAdapter.ViewHolder> {
 
     Context context;
-    List<MonAn> monAnList;
+    ArrayList<MonAn> monAnList;
     String gia_format;
 
-    public MonAnListAdapter(Context context, List<MonAn> monAns) {
-        super();
+    public MonAnListAdapter(Context context, ArrayList<MonAn> monAnList) {
         this.context = context;
-        this.monAnList = monAns;
+        this.monAnList = monAnList;
     }
 
     @NonNull
@@ -61,7 +57,7 @@ public class MonAnListAdapter extends RecyclerView.Adapter<MonAnListAdapter.View
         monAnList.get(position).getMoTa();
 
         gia_format = NumberFormat.getNumberInstance(Locale.US).format(monAnList.get(position).getGia());
-        holder.tvPrice.setText(gia_format + " đ");
+        holder.tvPrice.setText(gia_format + "đ");
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +65,18 @@ public class MonAnListAdapter extends RecyclerView.Adapter<MonAnListAdapter.View
                 Intent intent = new Intent(context, ShowDetail.class);
                 intent.putExtra("detail", monAnList.get(position));
                 context.startActivity(intent);
+            }
+        });
+
+        holder.btn_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+//                Intent intent = new Intent(context, MyCart.class);
+//                intent.putExtra("mycart", monAnList.get(position));
+//                Toast.makeText(context, "Add OK", Toast.LENGTH_SHORT).show();
+//                context.startActivity(intent);
+
             }
         });
     }
@@ -82,6 +90,7 @@ public class MonAnListAdapter extends RecyclerView.Adapter<MonAnListAdapter.View
 
         ImageView imgFood;
         TextView tvName, tvPrice, tvStar;
+        Button btn_add;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -89,10 +98,11 @@ public class MonAnListAdapter extends RecyclerView.Adapter<MonAnListAdapter.View
             tvName = (TextView) itemView.findViewById(R.id.name);
             tvPrice = (TextView) itemView.findViewById(R.id.gia);
             tvStar = (TextView) itemView.findViewById(R.id.star);
+            btn_add = (Button) itemView.findViewById(R.id.btn_add);
         }
     }
 
-    public void filterList(List<MonAn> filteredList) {
+    public void filterList(ArrayList<MonAn> filteredList) {
         monAnList = filteredList;
         notifyDataSetChanged();
     }

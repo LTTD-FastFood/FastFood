@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ecebe6"
     tools:context=".Activity.MyCart">
 
     <androidx.cardview.widget.CardView
@@ -13,7 +14,7 @@
         app:cardBackgroundColor="#62BA60"
         app:layout_constraintBottom_toBottomOf="@+id/cardView4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
@@ -30,19 +31,19 @@
             android:id="@+id/textView11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Giỏ hàng"
-            android:textSize="24dp"
+            android:layout_gravity="center"
             android:fontFamily="@font/lato_bold"
+            android:text="Giỏ hàng"
             android:textColor="@color/white"
-            android:layout_gravity="center"/>
+            android:textSize="24dp" />
 
         <TextView
             android:id="@+id/textView12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/ic_baseline_search_24"
+            android:layout_marginLeft="355dp"
             android:layout_marginTop="15dp"
-            android:layout_marginLeft="355dp"/>
+            android:background="@drawable/ic_baseline_search_24" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -58,12 +59,14 @@
         app:layout_constraintVertical_bias="1.0">
 
         <CheckBox
+            android:id="@+id/checkBoxAll"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_marginLeft="1dp"
             android:layout_marginTop="17.35dp"
             android:buttonTint="@color/backgroundMain"
             tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -73,8 +76,7 @@
             android:fontFamily="@font/lato_bold"
             android:textSize="20dp"
             android:textColor="#ffffff"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
 
         <TextView
@@ -87,11 +89,14 @@
             android:textColor="@color/white" />
 
         <TextView
-            android:id="@+id/textView6"
+
+            android:id="@+id/tvTong"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="290dp"
+            android:layout_marginRight="88dp"
             android:layout_marginTop="25dp"
+            android:gravity="right"
+            android:layout_gravity="right"
             android:text="0đ"
             android:textColor="@color/white" />
 
@@ -109,7 +114,20 @@
 
     </androidx.cardview.widget.CardView>
 
-    <ListView
+    <TextView
+        android:id="@+id/emptyTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Card Is Empty"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/lvGiohang"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/cardView3"/>
+
+    <androidx.recyclerview.widget.RecyclerView
         tools:listitem="@layout/layout_giohang"
         android:dividerHeight="3dp"
         android:id="@+id/lvGiohang"

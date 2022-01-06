@@ -1,4 +1,4 @@
-package com.example.fastfoodapp.Object;
+package com.example.fastfoodapp.Model;
 
 public class LichSu {
 

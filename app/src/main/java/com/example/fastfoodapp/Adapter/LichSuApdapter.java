@@ -12,8 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.example.fastfoodapp.Object.LichSu;
-import com.example.fastfoodapp.Object.MonAn;
+import com.example.fastfoodapp.Model.LichSu;
 import com.example.fastfoodapp.R;
 
 import java.text.NumberFormat;

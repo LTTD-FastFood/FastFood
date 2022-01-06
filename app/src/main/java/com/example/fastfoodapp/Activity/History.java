@@ -6,13 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.fastfoodapp.Adapter.LichSuApdapter;
-import com.example.fastfoodapp.Object.LichSu;
-import com.example.fastfoodapp.Object.MonAn;
+import com.example.fastfoodapp.Model.LichSu;
 import com.example.fastfoodapp.R;
 import com.example.fastfoodapp.databinding.ActivityHistoryBinding;
 

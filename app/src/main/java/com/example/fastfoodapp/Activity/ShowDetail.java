@@ -6,11 +6,14 @@ import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.fastfoodapp.Object.MonAn;
+import com.example.fastfoodapp.Helper.ManagementCard;
+import com.example.fastfoodapp.Model.MonAn;
 import com.example.fastfoodapp.R;
 import com.example.fastfoodapp.databinding.ActivityShowDetailBinding;
 
@@ -20,15 +23,18 @@ import java.util.Locale;
 public class ShowDetail extends AppCompatActivity {
 
     ActivityShowDetailBinding binding;
-    MonAn monAn = null;
     String gia_format;
+    MonAn object;
+    ManagementCard managementCard;
+    private int numberOrder = 1;
 
     TextView btnBack;
     CardView addCart;
+    FrameLayout frameLayout;
 
-    ImageView foodPic,imgTp1,imgTp2,imgTp3,imgTp4;
-    TextView foodTxt,caloriesTxt,tvthanhphan;
-    TextView txtSao,txtGia;
+    ImageView foodPic;
+    TextView foodTxt, caloriesTxt, tvthanhphan;
+    TextView txtSao, txtGia;
 
 
     @Override
@@ -37,6 +43,8 @@ public class ShowDetail extends AppCompatActivity {
         binding = ActivityShowDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        managementCard = new ManagementCard(this);
+
         AnhXa();
         cainaylahome();
         cainaylaNut();
@@ -44,33 +52,49 @@ public class ShowDetail extends AppCompatActivity {
     }
 
     private void cainaylahome() {
-        final Object object = getIntent().getSerializableExtra("detail");
-        if (object instanceof MonAn) {
-            monAn = (MonAn) object;
-        }
-        if (monAn != null) {
-            Glide.with(getApplicationContext()).load(monAn.getHinhMon()).into(foodPic);
-            foodTxt.setText(monAn.getTenMon());
-            caloriesTxt.setText(String.valueOf(monAn.getCalories()));
-            tvthanhphan.setText(String.valueOf(monAn.getMoTa()));
-            txtSao.setText(String.valueOf(monAn.getSao()));
 
-            gia_format = NumberFormat.getNumberInstance(Locale.US).format(monAn.getGia());
-            txtGia.setText(gia_format + " đ");
+//        object = null;
 
-        }
+//        final Object Object = getIntent().getSerializableExtra("detail");
+//        if (Object instanceof MonAn) {
+//            object = (MonAn) object;
+//        }
+//        if (object != null) {
+
+
+        object = (MonAn) getIntent().getSerializableExtra("detail");
+        Glide.with(getApplicationContext()).load(object.getHinhMon()).into(foodPic);
+
+        foodTxt.setText(object.getTenMon());
+        caloriesTxt.setText(String.valueOf(object.getCalories()) + " Calories");
+        tvthanhphan.setText(String.valueOf(object.getMoTa()));
+        txtSao.setText(String.valueOf(object.getSao()));
+
+        gia_format = NumberFormat.getNumberInstance(Locale.US).format(object.getGia());
+        txtGia.setText(gia_format + "đ");
+
+        frameLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Toast.makeText(ShowDetail.this, String.valueOf(numberOrder), Toast.LENGTH_SHORT).show();
+                object.setNumberInCard(numberOrder);
+                managementCard.insertFood(object);
+            }
+        });
+//        }
     }
 
 
     private void cainaylaNut() {
-        btnBack=(TextView) findViewById(R.id.btnBack);
+
+        btnBack = (TextView) findViewById(R.id.btnBack);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(ShowDetail.this, ListProduct.class));
             }
         });
-        addCart=(CardView) findViewById(R.id.addCart);
+        addCart = (CardView) findViewById(R.id.addCart);
         addCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -80,11 +104,12 @@ public class ShowDetail extends AppCompatActivity {
     }
 
     private void AnhXa() {
-        foodPic=(ImageView) findViewById(R.id.foodPic);
-        foodTxt=(TextView) findViewById(R.id.foodTxt);
-        caloriesTxt=(TextView) findViewById(R.id.calotxt);
-        tvthanhphan=(TextView) findViewById(R.id.thanhphan);
-        txtSao=(TextView) findViewById(R.id.txtSao);
-        txtGia=(TextView) findViewById(R.id.txtGia);
+        foodPic = (ImageView) findViewById(R.id.foodPic);
+        foodTxt = (TextView) findViewById(R.id.foodTxt);
+        caloriesTxt = (TextView) findViewById(R.id.calotxt);
+        tvthanhphan = (TextView) findViewById(R.id.thanhphan);
+        txtSao = (TextView) findViewById(R.id.txtSao);
+        txtGia = (TextView) findViewById(R.id.txtGia);
+        frameLayout = (FrameLayout) findViewById(R.id.frameAdd);
     }
 }

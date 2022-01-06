@@ -1,4 +1,4 @@
-package com.example.fastfoodapp.Object;
+package com.example.fastfoodapp.Model;
 
 import java.io.Serializable;
 
@@ -9,10 +9,10 @@ public class MonAn  implements Serializable {
     private int calories;
     private Double sao;
     private int gia;
-    private int Tong;
     private String moTa;
     private String nguyenlieu;
-    private int soluong;
+    private int numberInCard;
+
 
     public String getTenMon() {
         return tenMon;
@@ -54,14 +54,6 @@ public class MonAn  implements Serializable {
         this.gia = gia;
     }
 
-    public int getTong() {
-        return Tong;
-    }
-
-    public void setTong(int tong) {
-        Tong = tong;
-    }
-
     public String getMoTa() {
         return moTa;
     }
@@ -70,19 +62,19 @@ public class MonAn  implements Serializable {
         this.moTa = moTa;
     }
 
-    public String getnguyenlieu() {
+    public String getNguyenlieu() {
         return nguyenlieu;
     }
 
-    public void setnguyenlieu(String nguyenlieu) {
+    public void setNguyenlieu(String nguyenlieu) {
         this.nguyenlieu = nguyenlieu;
     }
 
-    public int getsoluong() {
-        return soluong;
+    public int getNumberInCard() {
+        return numberInCard;
     }
 
-    public void setsoluong(int soluong) {
-        this.soluong = soluong;
+    public void setNumberInCard(int numberInCard) {
+        this.numberInCard = numberInCard;
     }
 }

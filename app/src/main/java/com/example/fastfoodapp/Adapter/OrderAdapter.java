@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.example.fastfoodapp.Object.MonAn;
+import com.example.fastfoodapp.Model.MonAn;
 import com.example.fastfoodapp.R;
 
 import java.text.NumberFormat;
