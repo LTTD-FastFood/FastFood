@@ -80,7 +80,6 @@ public class ListProduct extends AppCompatActivity {
                         getMonAnAdapter.setSao(jsonObject.getDouble("star"));
                         getMonAnAdapter.setMoTa(jsonObject.getString("description"));
                         getMonAnAdapter.setCalories(jsonObject.getInt("calories"));
-
                         getMonAnAdapter.setHinhMon(urlBase.concat(jsonObject.getString("imgFood")));
 
                     } catch (JSONException e) {
