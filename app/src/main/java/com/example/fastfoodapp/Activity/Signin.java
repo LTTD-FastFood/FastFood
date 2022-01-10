@@ -110,6 +110,7 @@ public class Signin extends AppCompatActivity {
                             String address = object.getString("address").trim();
                             String addressSpecific = object.getString("addressSpecific").trim();
                             String id = object.getString("id").trim();
+                            Utils.getId  = object.getString("id").trim();
 
                             sessionManager.createSession(name,email,phone,dateofbirth,id);
                             sessionManager.createSession2(name,phone,address,addressSpecific,id);

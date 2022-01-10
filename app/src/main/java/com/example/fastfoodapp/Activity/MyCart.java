@@ -27,15 +27,14 @@ public class MyCart extends AppCompatActivity {
     ActivityMyCartBinding binding;
     MonAn monAn = null;
 
-    TextView btnBack, numberOrderTxt, tvTong, emptyTxt;
-    Button btnOrder;
-    CheckBox checkBox;
+    TextView btnBack, tvTong, emptyTxt;
+    TextView btnOrder;
 
     private RecyclerView.Adapter adapter;
     private RecyclerView recyclerViewList;
     private ManagementCard managementCard;
+    GiohangAdapter giohangAdapter;
     String tong_format;
-    ArrayList<MonAn> monAns;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +65,7 @@ public class MyCart extends AppCompatActivity {
         } else {
             emptyTxt.setVisibility(View.GONE);
         }
+
     }
 
     private void cainaylaNut() {
@@ -76,7 +76,7 @@ public class MyCart extends AppCompatActivity {
                 startActivity(new Intent(MyCart.this, Home.class));
             }
         });
-        btnOrder = (Button) findViewById(R.id.btnOrder);
+        btnOrder = (TextView) findViewById(R.id.btnOrder);
         btnOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -85,13 +85,6 @@ public class MyCart extends AppCompatActivity {
         });
 
     }
-//    public void itemClicked(View v) {
-//        //code to check if this checkbox is checked!
-//        CheckBox checkBox = (CheckBox)v;
-//        if(checkBox.isChecked()){
-//            CalculateCard();
-//        }
-//    }
 
     private void CalculateCard() {
 
@@ -103,6 +96,5 @@ public class MyCart extends AppCompatActivity {
         emptyTxt = (TextView) findViewById(R.id.emptyTxt);
         tvTong = (TextView) findViewById(R.id.tvTong);
         recyclerViewList = findViewById(R.id.lvGiohang);
-        checkBox = findViewById(R.id.checkBoxAll);
     }
 }

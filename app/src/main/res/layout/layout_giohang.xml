@@ -8,24 +8,17 @@
     android:descendantFocusability="blocksDescendants"
     android:layout_height="wrap_content">
 
-    <CheckBox
-        android:id="@+id/checkBoxk"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginLeft="1dp"
-        android:layout_marginTop="30dp"
-        android:buttonTint="@color/main" />
 
     <ImageView
         android:id="@+id/imgMon"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginLeft="40dp"
+        android:layout_marginLeft="15dp"
         android:layout_marginTop="5dp"
         android:src="@drawable/pizza" />
 
     <LinearLayout
-        android:layout_marginLeft="125dp"
+        android:layout_marginLeft="110dp"
         android:layout_marginTop="55dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -60,10 +53,10 @@
 
     <TextView
         android:id="@+id/ten"
-        android:layout_width="150dp"
+        android:layout_width="165dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="125dp"
+        android:layout_marginLeft="110dp"
         android:layout_marginTop="6dp"
         android:text="Burger King"
         android:textSize="18dp"

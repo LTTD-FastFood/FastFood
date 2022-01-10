@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class MonAn  implements Serializable {
 
+    private int maSP;
     private String tenMon;
     private String hinhMon;
     private int calories;
@@ -13,6 +14,13 @@ public class MonAn  implements Serializable {
     private String nguyenlieu;
     private int numberInCard;
 
+    public int getMaSP() {
+        return maSP;
+    }
+
+    public void setMaSP(int maSP) {
+        this.maSP = maSP;
+    }
 
     public String getTenMon() {
         return tenMon;

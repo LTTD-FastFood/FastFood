@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.fastfoodapp.Activity.MyCart;
 import com.example.fastfoodapp.Activity.ShowDetail;
+import com.example.fastfoodapp.Helper.ManagementCard;
 import com.example.fastfoodapp.Model.MonAn;
 import com.example.fastfoodapp.R;
 
@@ -30,6 +31,9 @@ public class MonAnListAdapter extends RecyclerView.Adapter<MonAnListAdapter.View
     Context context;
     ArrayList<MonAn> monAnList;
     String gia_format;
+
+    ManagementCard managementCard;
+    private int numberOrder = 1;
 
     public MonAnListAdapter(Context context, ArrayList<MonAn> monAnList) {
         this.context = context;
@@ -54,7 +58,7 @@ public class MonAnListAdapter extends RecyclerView.Adapter<MonAnListAdapter.View
         holder.tvName.setText(monAnList.get(position).getTenMon());
         holder.tvStar.setText(String.valueOf(monAnList.get(position).getSao()));
         monAnList.get(position).getMoTa();
-        monAnList.get(position).getMoTa();
+        monAnList.get(position).getMaSP();
 
         gia_format = NumberFormat.getNumberInstance(Locale.US).format(monAnList.get(position).getGia());
         holder.tvPrice.setText(gia_format + "đ");
@@ -62,9 +66,11 @@ public class MonAnListAdapter extends RecyclerView.Adapter<MonAnListAdapter.View
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(context, ShowDetail.class);
                 intent.putExtra("detail", monAnList.get(position));
                 context.startActivity(intent);
+
             }
         });
 
@@ -72,10 +78,11 @@ public class MonAnListAdapter extends RecyclerView.Adapter<MonAnListAdapter.View
             @Override
             public void onClick(View view) {
 
-//                Intent intent = new Intent(context, MyCart.class);
-//                intent.putExtra("mycart", monAnList.get(position));
-//                Toast.makeText(context, "Add OK", Toast.LENGTH_SHORT).show();
-//                context.startActivity(intent);
+                MonAn object;
+                object = monAnList.get(position);
+                managementCard = new ManagementCard(context);
+                object.setNumberInCard(numberOrder);
+                managementCard.insertFood(object);
 
             }
         });

@@ -27,6 +27,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.fastfoodapp.Activity.Address;
 import com.example.fastfoodapp.R;
+import com.example.fastfoodapp.utils.Utils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -48,7 +49,7 @@ public class Custom_dialog extends AppCompatDialogFragment {
     ArrayList<String> wardList = new ArrayList<>();
     ArrayAdapter<String> stateAdapter,districtAdapter,wardAdapter;
     RequestQueue requestQueue;
-    String urlState = "http://192.168.1.8/Android/address/populate_state.php";
+    String urlState = Utils.BASE_URL + "Android/address/populate_state.php";
 
     @NonNull
     @Override
@@ -154,7 +155,7 @@ public class Custom_dialog extends AppCompatDialogFragment {
             if(i>0){
                 districtList.clear();
                 selectedDistrict = stateSpinner.getSelectedItem().toString();
-                String urlDistrict = "http://192.168.1.8/Android/address/populate_district.php?state_name="+selectedDistrict;
+                String urlDistrict = Utils.BASE_URL + "Android/address/populate_district.php?state_name="+selectedDistrict;
                 JsonObjectRequest jsonObjectRequest1 = new JsonObjectRequest(Request.Method.POST, urlDistrict, null,
                         new Response.Listener<JSONObject>() {
                             @Override
@@ -197,7 +198,8 @@ public class Custom_dialog extends AppCompatDialogFragment {
             if(i>0){
                 wardList.clear();
                 selectedWard = districtSpinner.getSelectedItem().toString();
-                String urlWard = "http://192.168.1.8/Android/address/populate_ward.php?district_name="+selectedWard;
+                String urlWard = Utils.BASE_URL + "Android/address/populate_ward.php?district_name="+selectedWard;
+
                 JsonObjectRequest jsonObjectRequest2 = new JsonObjectRequest(Request.Method.POST, urlWard, null,
                         new Response.Listener<JSONObject>() {
                             @Override

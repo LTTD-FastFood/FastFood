@@ -112,6 +112,7 @@ public class Home extends AppCompatActivity {
 
             }
 
+
             @Override
             public void onPageSelected(int position) {
 
@@ -126,7 +127,8 @@ public class Home extends AppCompatActivity {
         });
     }
 
-    private List<Photo> getlistPhoto(){
+
+    private List<Photo> getlistPhoto() {
 
         List<Photo> list = new ArrayList<>();
         list.add(new Photo(R.drawable.a4));
@@ -136,11 +138,11 @@ public class Home extends AppCompatActivity {
         list.add(new Photo(R.drawable.a5));
         list.add(new Photo(R.drawable.a6));
 
-
-
         return list;
 
     }
+
+
 
 
     private void call_json() {

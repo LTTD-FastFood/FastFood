@@ -17,6 +17,11 @@ public class ManagementCard {
         this.tinyDB = new TinyDB(context);
     }
 
+    public void DeleteListCard() {
+         tinyDB.remove("CardList");
+    }
+
+
     public ArrayList<MonAn> getListCard() {
         return tinyDB.getListObject("CardList");
     }

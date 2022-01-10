@@ -289,7 +289,7 @@ public class Profile extends AppCompatActivity {
                             String success = jsonObject.getString("success");
 
                             if(success.equals("1")){
-                                Toast.makeText(Profile.this, "Success", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Profile.this, "Thành công", Toast.LENGTH_SHORT).show();
                                 sessionManager.createSession(name,email,phone,birth,id);
                             }
 
@@ -388,7 +388,7 @@ public class Profile extends AppCompatActivity {
                 return params;
             }
         };
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        RequestQueue requestQueue = Volley.newRequestQueue(Profile.this);
         requestQueue.add(stringRequest);
     }
     public String getStringImage(Bitmap bitmap){

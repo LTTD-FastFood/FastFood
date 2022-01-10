@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -80,6 +81,10 @@ public class ListProduct extends AppCompatActivity {
                         getMonAnAdapter.setSao(jsonObject.getDouble("star"));
                         getMonAnAdapter.setMoTa(jsonObject.getString("description"));
                         getMonAnAdapter.setCalories(jsonObject.getInt("calories"));
+
+                        getMonAnAdapter.setMaSP(jsonObject.getInt("id_food"));
+
+
                         getMonAnAdapter.setHinhMon(urlBase.concat(jsonObject.getString("imgFood")));
 
                     } catch (JSONException e) {
@@ -93,7 +98,8 @@ public class ListProduct extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(ListProduct.this, error.toString(), Toast.LENGTH_SHORT).show();
+                Log.d("a",error.toString());
+//                Toast.makeText(ListProduct.this, error.toString(), Toast.LENGTH_SHORT).show();
             }
         }
         );

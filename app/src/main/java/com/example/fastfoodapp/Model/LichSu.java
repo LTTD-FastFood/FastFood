@@ -1,152 +1,52 @@
 package com.example.fastfoodapp.Model;
 
-public class LichSu {
+import java.io.Serializable;
 
-    private String ten;
-    private String thoiGian;
-    private int Anh;
-    private String Mota;
-    private int gia;
-    private String calories;
-    private Double sao;
-    private int Tong;
-    private String ingredient;
-    private String size;
-    private int anhMot;
-    private int anhHai;
-    private int anhBa;
-    private int anhBon;
+public class LichSu implements Serializable {
 
+   private String imgFood;
+   private String nameFood;
+   private int soluong;
+   private int donGia;
+   private String ngayMua;
 
-    public LichSu(String ten, String thoiGian, int anh, String mota, int gia, String calories, Double sao, int tong, String ingredient, String size, int anhMot, int anhHai, int anhBa, int anhBon) {
-        this.ten = ten;
-        this.thoiGian = thoiGian;
-        Anh = anh;
-        Mota = mota;
-        this.gia = gia;
-        this.calories = calories;
-        this.sao = sao;
-        Tong = tong;
-        this.ingredient = ingredient;
-        this.size = size;
-        this.anhMot = anhMot;
-        this.anhHai = anhHai;
-        this.anhBa = anhBa;
-        this.anhBon = anhBon;
-
+    public String getImgFood() {
+        return imgFood;
     }
 
-    public String getTen() {
-        return ten;
+    public void setImgFood(String imgFood) {
+        this.imgFood = imgFood;
     }
 
-    public void setTen(String ten) {
-        this.ten = ten;
+    public String getNameFood() {
+        return nameFood;
     }
 
-    public String getThoiGian() {
-        return thoiGian;
+    public void setNameFood(String nameFood) {
+        this.nameFood = nameFood;
     }
 
-    public void setThoiGian(String thoiGian) {
-        this.thoiGian = thoiGian;
+    public int getSoluong() {
+        return soluong;
     }
 
-    public int getAnh() {
-        return Anh;
+    public void setSoluong(int soluong) {
+        this.soluong = soluong;
     }
 
-    public void setAnh(int anh) {
-        Anh = anh;
+    public int getDonGia() {
+        return donGia;
     }
 
-    public String getMota() {
-        return Mota;
+    public void setDonGia(int donGia) {
+        this.donGia = donGia;
     }
 
-    public void setMota(String mota) {
-        Mota = mota;
+    public String getNgayMua() {
+        return ngayMua;
     }
 
-    public int getGia() {
-        return gia;
+    public void setNgayMua(String ngayMua) {
+        this.ngayMua = ngayMua;
     }
-
-    public void setGia(int gia) {
-        this.gia = gia;
-    }
-
-    public String getCalories() {
-        return calories;
-    }
-
-    public void setCalories(String calories) {
-        this.calories = calories;
-    }
-
-    public Double getSao() {
-        return sao;
-    }
-
-    public void setSao(Double sao) {
-        this.sao = sao;
-    }
-
-    public int getTong() {
-        return Tong;
-    }
-
-    public void setTong(int tong) {
-        Tong = tong;
-    }
-
-    public String getIngredient() {
-        return ingredient;
-    }
-
-    public void setIngredient(String ingredient) {
-        this.ingredient = ingredient;
-    }
-
-    public String getSize() {
-        return size;
-    }
-
-    public void setSize(String size) {
-        this.size = size;
-    }
-
-    public int getAnhMot() {
-        return anhMot;
-    }
-
-    public void setAnhMot(int anhMot) {
-        this.anhMot = anhMot;
-    }
-
-    public int getAnhHai() {
-        return anhHai;
-    }
-
-    public void setAnhHai(int anhHai) {
-        this.anhHai = anhHai;
-    }
-
-    public int getAnhBa() {
-        return anhBa;
-    }
-
-    public void setAnhBa(int anhBa) {
-        this.anhBa = anhBa;
-    }
-
-    public int getAnhBon() {
-        return anhBon;
-    }
-
-    public void setAnhBon(int anhBon) {
-        this.anhBon = anhBon;
-    }
-
-
 }

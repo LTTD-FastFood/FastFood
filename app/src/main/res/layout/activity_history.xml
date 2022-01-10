@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white"
     tools:context=".Activity.History">
 
     <androidx.cardview.widget.CardView
@@ -168,25 +167,33 @@
         </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/emptyTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lịch sử của bạn rỗng"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/recHistory"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/cardView2"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recHistory"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginTop="60dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="70dp"
+        android:dividerHeight="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <ListView
-            tools:listitem="@layout/layout_dong"
-            android:id="@+id/listviewLichSu"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:dividerHeight="3dp" />
-    </LinearLayout>
+        tools:listitem="@layout/layout_dong" />
 
 
 

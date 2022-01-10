@@ -59,20 +59,6 @@ public class GiohangAdapter extends RecyclerView.Adapter<GiohangAdapter.ViewHold
         tong_format = NumberFormat.getNumberInstance(Locale.US).format(monAns.get(position).getNumberInCard() * monAns.get(position).getGia());
         holder.tong.setText(tong_format + "đ");
 
-        holder.checkBox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                final boolean isChecked = holder.checkBox.isChecked();
-                for (int i=0; i<monAns.size();i++) {
-                    if (isChecked) {
-                        Toast.makeText(holder.itemView.getContext(), monAns.get(position).getTenMon(), Toast.LENGTH_SHORT).show();
-                    } else {
-
-                    }
-                }
-            }
-        });
-
         holder.plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -109,7 +95,6 @@ public class GiohangAdapter extends RecyclerView.Adapter<GiohangAdapter.ViewHold
 
         TextView TenSP, giaBan, SoLuong, tong;
         ImageView plus, minus, hinhMon;
-        CheckBox checkBox;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -120,7 +105,7 @@ public class GiohangAdapter extends RecyclerView.Adapter<GiohangAdapter.ViewHold
             plus = itemView.findViewById(R.id.plusBtn);
             hinhMon = itemView.findViewById(R.id.imgMon);
             minus = itemView.findViewById(R.id.minusBtn);
-            checkBox = itemView.findViewById(R.id.checkBoxk);
         }
     }
+
 }

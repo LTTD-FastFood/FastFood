@@ -32,6 +32,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.fastfoodapp.App.Custom_dialog;
 import com.example.fastfoodapp.App.SessionManager;
 import com.example.fastfoodapp.R;
+import com.example.fastfoodapp.utils.Utils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -49,7 +50,8 @@ public class Address extends AppCompatActivity implements Custom_dialog.ExampleD
     String getId;
     Menu action;
 
-    String url = "http://192.168.1.8/Android/read_detail.php";
+    String url = Utils.BASE_URL + "Android/profile/read_detail.php";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -188,7 +190,7 @@ public class Address extends AppCompatActivity implements Custom_dialog.ExampleD
         progressDialog.setIndeterminate(false);
         progressDialog.show();
 
-        String urlEdit = "http://192.168.1.8/Android/edit_address.php";
+        String urlEdit = Utils.BASE_URL + "Android/profile/edit_address.php";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, urlEdit, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
