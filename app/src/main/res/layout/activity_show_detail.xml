@@ -7,38 +7,59 @@
     android:background="#60BA62"
     tools:context=".Activity.ShowDetail">
 
-    <LinearLayout
-        android:id="@+id/linearLayout4"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarDetail1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent">
+        android:background="@color/main"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbarDetail"
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="CHI TIẾT SẢN PHẨM"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp">
+
+        <LinearLayout
+            android:id="@+id/linearLayout4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#60BA62"
-            app:title="Chi Tiết Sản Phẩm"
-            app:titleTextColor="@color/white" />
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarDetail1">
 
-        <RelativeLayout
-            android:id="@+id/relativeLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            <RelativeLayout
+                android:id="@+id/relativeLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:id="@+id/foodPic"
-                android:layout_width="match_parent"
-                android:layout_height="280dp"
-                app:srcCompat="@drawable/pizza1" />
+                <ImageView
+                    android:id="@+id/foodPic"
+                    android:layout_width="match_parent"
+                    android:layout_height="280dp"
+                    app:srcCompat="@drawable/pizza1" />
 
                 <LinearLayout
                     android:id="@+id/linearLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="583dp"
+                    android:layout_height="500dp"
                     android:layout_marginTop="270dp"
                     android:background="@drawable/card_background"
                     android:elevation="3dp"
@@ -242,12 +263,11 @@
 
                     </LinearLayout>
 
-
-
                 </LinearLayout>
 
-        </RelativeLayout>
-    </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/addCart"
@@ -258,14 +278,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
         tools:layout_editor_absoluteX="0dp">
-
-        <TextView
-            android:id="@+id/textView16"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="360dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/btnnext" />
 
         <FrameLayout
             android:id="@+id/frameAdd"

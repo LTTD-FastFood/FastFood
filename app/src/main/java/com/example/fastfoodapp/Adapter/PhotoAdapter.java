@@ -1,4 +1,4 @@
-package com.example.fastfoodapp.Activity;
+package com.example.fastfoodapp.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.bumptech.glide.Glide;
+import com.example.fastfoodapp.Activity.Photo;
 import com.example.fastfoodapp.R;
 
 import java.util.List;

@@ -26,17 +26,26 @@
             android:parentActivityName=".Activity.MyOrder" />
         <activity
             android:name=".Activity.MyOrder"
+            android:label=" "
+            android:parentActivityName=".Activity.MyCart"
+            android:theme="@style/MyEditProfile"
             android:exported="true" />
         <activity
             android:name=".Activity.History"
+            android:label=" "
+            android:parentActivityName=".Activity.Home"
+            android:theme="@style/MyEditProfile"
             android:exported="true" />
         <activity
             android:name=".Activity.ShowDetail"
+            android:label=""
+            android:parentActivityName=".Activity.Home"
+            android:theme="@style/MyEditProfile"
             android:exported="true" />
         <activity
             android:name=".Activity.Profile"
             android:exported="true"
-            android:label="HỒ SƠ"
+            android:label=""
             android:parentActivityName=".Activity.Home"
             android:theme="@style/MyEditProfile" />
         <activity

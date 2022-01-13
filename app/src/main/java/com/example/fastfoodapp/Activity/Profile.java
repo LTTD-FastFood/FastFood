@@ -76,10 +76,10 @@ public class Profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbarPr);
         setSupportActionBar(toolbar);
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         sessionManager = new SessionManager(this);
 //        sessionManager.checkLogin();
@@ -391,6 +391,7 @@ public class Profile extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(Profile.this);
         requestQueue.add(stringRequest);
     }
+
     public String getStringImage(Bitmap bitmap){
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
@@ -400,7 +401,6 @@ public class Profile extends AppCompatActivity {
 
         return  encodeImage;
     }
-
 
     private void AnhXa() {
         btnSignOut=(Button) findViewById(R.id.btnSignOut);

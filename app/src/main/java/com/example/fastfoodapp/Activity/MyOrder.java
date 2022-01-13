@@ -2,6 +2,7 @@ package com.example.fastfoodapp.Activity;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -54,7 +55,7 @@ public class MyOrder extends AppCompatActivity {
     ActivityMyOrderBinding binding;
 
     LinearLayout btnAddress, btnCheckOut;
-    TextView btnBack, tenkh, sdtkh, diachi, diachicuthe;
+    TextView tvPhiGH, tenkh, sdtkh, diachi, diachicuthe;
     TextView tvTongOrder, txtEmpty,tvOrder;
 
     private RecyclerView.Adapter adapter;
@@ -74,6 +75,11 @@ public class MyOrder extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMyOrderBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        Toolbar toolbar = findViewById(R.id.toolbar4);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         managementCard = new ManagementCard(this);
 
@@ -113,7 +119,8 @@ public class MyOrder extends AppCompatActivity {
 
     private void CalculateCard() {
 
-        tong_format = NumberFormat.getNumberInstance(Locale.US).format(managementCard.getTotalFee());
+        int Tong = managementCard.getTotalFee() + 15000;
+        tong_format = NumberFormat.getNumberInstance(Locale.US).format(Tong);
         tvTongOrder.setText(tong_format + "đ");
     }
 
@@ -245,13 +252,6 @@ public class MyOrder extends AppCompatActivity {
                 startActivity(new Intent(MyOrder.this, CheckOut.class));
             }
         });
-        btnBack = (TextView) findViewById(R.id.btnBack);
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MyOrder.this, MyCart.class));
-            }
-        });
 
         tvOrder.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -276,5 +276,6 @@ public class MyOrder extends AppCompatActivity {
         txtEmpty = findViewById(R.id.emptyTxt);
         tvOrder = findViewById(R.id.tvOrder);
         recyclerViewList = findViewById(R.id.recOrder);
+        tvPhiGH = findViewById(R.id.phiGH);
     }
 }

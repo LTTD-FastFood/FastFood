@@ -2,6 +2,8 @@ package com.example.fastfoodapp.Activity;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -9,6 +11,8 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.RelativeLayout;
@@ -49,7 +53,6 @@ public class History extends AppCompatActivity {
     ActivityHistoryBinding binding;
 
     RelativeLayout btnProfile,btnProduct,btnHome;
-    TextView btnBackList;
 
     String url = Utils.BASE_URL+"Android/ViewHistory.php";
     String urlBase= Utils.BASE_URL;
@@ -69,6 +72,11 @@ public class History extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityHistoryBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        Toolbar toolbar = findViewById(R.id.toolbar3);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         sessionManager = new SessionManager(this);
         HashMap<String, String> user = sessionManager.getUserDetail();
@@ -136,15 +144,48 @@ public class History extends AppCompatActivity {
         requestQueue.add(request);
     }
 
-    private void CainaylaNut() {
+    private void filter(String text) {
+        ArrayList<LichSu> filteredList = new ArrayList<>();
 
-        btnBackList=(TextView) findViewById(R.id.btnBackList);
-        btnBackList.setOnClickListener(new View.OnClickListener() {
+        for (LichSu item : lichsuList) {
+            if (item.getNameFood().toLowerCase().contains(text.toLowerCase())) {
+                filteredList.add(item);
+
+            }
+        }
+
+//        recyclerViewAdapter = new CustomerListAdapter(customerList,getActivity());
+        lichSuApdapter.filterList(filteredList);
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.menu_search, menu);
+
+        MenuItem menuItem = menu.findItem(R.id.action_search);
+        androidx.appcompat.widget.SearchView searchView = (androidx.appcompat.widget.SearchView) menuItem.getActionView();
+        searchView.setQueryHint("Tìm kiếm...");
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public void onClick(View view) {
-                startActivity(new Intent(History.this, Home.class));
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                filter(newText);
+
+                return false;
             }
         });
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    private void CainaylaNut() {
 
         btnHome=(RelativeLayout) findViewById(R.id.btnHome);
         btnHome.setOnClickListener(new View.OnClickListener() {
@@ -170,6 +211,5 @@ public class History extends AppCompatActivity {
             }
         });
     }
-
 
 }

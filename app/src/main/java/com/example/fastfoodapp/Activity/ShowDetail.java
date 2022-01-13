@@ -1,11 +1,15 @@
 package com.example.fastfoodapp.Activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -46,9 +50,10 @@ public class ShowDetail extends AppCompatActivity {
         binding = ActivityShowDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        toolbar = findViewById(R.id.toolbarDetail);
+        toolbar = findViewById(R.id.toolbarDetail1);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         managementCard = new ManagementCard(this);
 
@@ -84,6 +89,18 @@ public class ShowDetail extends AppCompatActivity {
 //        }
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_cham,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        return super.onOptionsItemSelected(item);
+    }
 
     private void cainaylaNut() {
 

@@ -22,14 +22,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.fastfoodapp.Adapter.MonAnListAdapter;
+import com.example.fastfoodapp.Adapter.PhotoAdapter;
 import com.example.fastfoodapp.Model.MonAn;
 import com.example.fastfoodapp.R;
 import com.example.fastfoodapp.databinding.ActivityHomeBinding;
-import com.example.fastfoodapp.tabHome.Breakfast;
-import com.example.fastfoodapp.tabHome.Dinner;
-import com.example.fastfoodapp.tabHome.Lunch;
 import com.example.fastfoodapp.utils.Utils;
-import com.google.android.material.tabs.TabLayout;
 
 import org.json.JSONArray;
 import org.json.JSONException;

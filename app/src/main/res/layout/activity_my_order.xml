@@ -6,37 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".Activity.MyOrder">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar4"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        app:cardBackgroundColor="#62BA60"
-        app:layout_constraintBottom_toBottomOf="@+id/cardView"
+        android:layout_height="wrap_content"
+        android:background="@color/main"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:elevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="parent" >
 
         <TextView
-            android:id="@+id/btnBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/ic_back" />
-
-        <TextView
-            android:id="@+id/textView11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:text="THANH TOÁN"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
             android:layout_gravity="center"
-            android:fontFamily="@font/lato_bold"
-            android:text="Thanh Toán"
-            android:textColor="@color/white"
-            android:textSize="24dp" />
-
-    </androidx.cardview.widget.CardView>
+            android:id="@+id/toolbar_title" />
+    </androidx.appcompat.widget.Toolbar>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -258,7 +249,6 @@
                         
                     </LinearLayout>
 
-
                 </LinearLayout>
 
                 <TextView
@@ -325,11 +315,12 @@
                             android:orientation="vertical">
 
                             <TextView
+                                android:id="@+id/phiGH"
                                 android:layout_width="121dp"
                                 android:layout_height="match_parent"
                                 android:fontFamily="@font/lato_regular"
                                 android:gravity="right"
-                                android:text="Miễn phí" />
+                                android:text="15,000đ" />
 
                             <TextView
                                 android:layout_width="121dp"

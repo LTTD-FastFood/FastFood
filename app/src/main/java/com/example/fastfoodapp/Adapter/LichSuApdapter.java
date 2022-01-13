@@ -111,4 +111,10 @@ public class LichSuApdapter extends RecyclerView.Adapter<LichSuApdapter.ViewHold
 
         }
     }
+
+    public void filterList(ArrayList<LichSu> filteredList) {
+        lichSuArrayList = filteredList;
+        notifyDataSetChanged();
+    }
+
 }
