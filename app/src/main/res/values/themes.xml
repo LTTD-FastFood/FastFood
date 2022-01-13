@@ -37,4 +37,16 @@
         <item name="fontFamily">@font/lato_light</item>
     </style>
     <style name="MyDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert"/>
+
+    <style name="RatingBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/custom_ratingbar_selector</item>
+        <item name="android:indeterminateDrawable">@drawable/custom_ratingbar_selector</item>
+        <item name="android:minHeight">13.4dp</item>
+        <item name="android:maxHeight">13.4dp</item>
+    </style>
+
+    <style name="customRatingBar"
+        parent="android:style/Widget.Material.RatingBar.Small">
+    </style>
+
 </resources>

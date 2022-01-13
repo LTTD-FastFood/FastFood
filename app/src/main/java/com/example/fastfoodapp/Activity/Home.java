@@ -8,7 +8,10 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,7 +22,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.fastfoodapp.Adapter.MonAnListAdapter;
-import com.example.fastfoodapp.Adapter.VPAdapter;
 import com.example.fastfoodapp.Model.MonAn;
 import com.example.fastfoodapp.R;
 import com.example.fastfoodapp.databinding.ActivityHomeBinding;
@@ -43,23 +45,23 @@ public class Home extends AppCompatActivity {
 
     ActivityHomeBinding binding;
 
-     ViewPager viewPager;
-     CircleIndicator circleIndicator;
-     PhotoAdapter photoAdapter;
-     List<Photo> mlistPhoto;
+    ViewPager viewPager;
+    CircleIndicator circleIndicator;
+    PhotoAdapter photoAdapter;
+    List<Photo> mlistPhoto;
 
-     Handler mhandler = new Handler();
-     Runnable mrunnable = new Runnable() {
-         @Override
-         public void run() {
+    Handler mhandler = new Handler();
+    Runnable mrunnable = new Runnable() {
+        @Override
+        public void run() {
 
-             if (viewPager.getCurrentItem() == mlistPhoto.size() - 1){
-                 viewPager.setCurrentItem(0);
-             } else {
-                 viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
-             }
-         }
-     };
+            if (viewPager.getCurrentItem() == mlistPhoto.size() - 1){
+                viewPager.setCurrentItem(0);
+            } else {
+                viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+            }
+        }
+    };
 
 
     String urlBase= Utils.BASE_URL;
@@ -98,12 +100,12 @@ public class Home extends AppCompatActivity {
 
         mlistPhoto = getlistPhoto();
 
-       photoAdapter = new PhotoAdapter(this, getlistPhoto());
+        photoAdapter = new PhotoAdapter(this, getlistPhoto());
 
         PhotoAdapter adapter = new PhotoAdapter(mlistPhoto);
         viewPager.setAdapter(photoAdapter);
         circleIndicator.setViewPager(viewPager);
-    //    photoAdapter.registerDataSetObserver(circleIndicator.getDataSetObserver());
+        //    photoAdapter.registerDataSetObserver(circleIndicator.getDataSetObserver());
         mhandler.postDelayed(mrunnable,3000);
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -125,6 +127,24 @@ public class Home extends AppCompatActivity {
 
             }
         });
+
+        EditText edtSearch = findViewById(R.id.txtFind);
+        edtSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                filter(edtSearch.toString());
+            }
+        });
     }
 
 
@@ -142,6 +162,20 @@ public class Home extends AppCompatActivity {
 
     }
 
+    private void filter(String text) {
+        ArrayList<MonAn> filteredList = new ArrayList<>();
+
+        for (MonAn item : monAnList) {
+            if (item.getTenMon().toLowerCase().contains(text.toLowerCase())) {
+                filteredList.add(item);
+
+            }
+        }
+
+//        recyclerViewAdapter = new CustomerListAdapter(customerList,getActivity());
+        monAnListAdapter.filterList(filteredList);
+
+    }
 
 
 

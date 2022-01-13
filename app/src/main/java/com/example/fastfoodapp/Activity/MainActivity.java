@@ -9,6 +9,7 @@ import android.os.Handler;
 import com.example.fastfoodapp.R;
 
 public class MainActivity extends AppCompatActivity {
+
     private Handler handler;
     private Runnable myRunnable;
     @Override

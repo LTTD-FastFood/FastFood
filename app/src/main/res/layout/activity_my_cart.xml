@@ -7,44 +7,28 @@
     android:background="#ecebe6"
     tools:context=".Activity.MyCart">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView3"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        app:cardBackgroundColor="#62BA60"
-        app:layout_constraintBottom_toBottomOf="@+id/cardView4"
+        android:layout_height="wrap_content"
+        android:background="@color/main"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:elevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="parent" >
 
         <TextView
-            android:id="@+id/btnBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/ic_back" />
-
-        <TextView
-            android:id="@+id/textView11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:text="GIỎ HÀNG"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
             android:layout_gravity="center"
-            android:fontFamily="@font/lato_bold"
-            android:text="Giỏ hàng"
-            android:textColor="@color/white"
-            android:textSize="24dp" />
-
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="355dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/ic_baseline_search_24" />
-    </androidx.cardview.widget.CardView>
+            android:id="@+id/toolbar_title" />
+    </androidx.appcompat.widget.Toolbar>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView4"
@@ -54,8 +38,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView3"
+        app:layout_constraintStart_toStartOf="@id/toolbar2"
         app:layout_constraintVertical_bias="1.0">
 
         <TextView
@@ -82,7 +65,7 @@
         app:layout_constraintBottom_toBottomOf="@id/lvGiohang"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/cardView3"/>
+        app:layout_constraintTop_toTopOf="@id/toolbar2"/>
 
     <LinearLayout
         android:layout_width="match_parent"

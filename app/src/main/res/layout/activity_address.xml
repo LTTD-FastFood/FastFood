@@ -16,43 +16,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="60dp"-->
-<!--            android:background="#62BA60">-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/btnBack"-->
-<!--                android:layout_width="44dp"-->
-<!--                android:layout_height="44dp"-->
-<!--                android:layout_marginTop="7dp"-->
-<!--                android:background="@drawable/left" />-->
-
-<!--            <TextView-->
-<!--                android:layout_width="287dp"-->
-<!--                android:layout_height="60dp"-->
-<!--                android:layout_centerHorizontal="true"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:layout_weight="1"-->
-<!--                android:fontFamily="@font/lato_bold"-->
-<!--                android:gravity="center"-->
-<!--                android:text="Địa chỉ nhận hàng"-->
-<!--                android:textColor="#F0F0F0"-->
-<!--                android:textSize="20dp"-->
-<!--                android:textStyle="bold" />-->
-<!--            <TextView-->
-<!--                android:layout_width="44dp"-->
-<!--                android:layout_height="60dp"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:layout_marginRight="15dp"-->
-<!--                android:text="Sửa"-->
-<!--                android:gravity="center"-->
-<!--                android:textSize="18dp"-->
-<!--                android:textColor="#F0F0F0"-->
-<!--                />-->
-<!--        </LinearLayout>-->
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="160dp"
@@ -61,7 +24,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">>
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="183dp"

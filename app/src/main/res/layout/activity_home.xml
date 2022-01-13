@@ -76,14 +76,14 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="16dp">
+                android:layout_marginTop="20dp">
 
                 <EditText
                     android:id="@+id/txtFind"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginLeft="16dp"
                     android:layout_alignParentTop="true"
                     android:background="@drawable/edt_find"
                     android:hint="Nhập món bạn muốn tìm.."
@@ -107,34 +107,33 @@
                     android:paddingTop="60dp">
 
                     <LinearLayout
-                        android:layout_width="360dp"
+                        android:layout_width="match_parent"
                         android:layout_height="190dp"
                         android:layout_gravity="center"
-                        android:layout_marginTop="12dp"
-         >
+                        android:layout_marginTop="5dp">
+
                         <androidx.viewpager.widget.ViewPager
                             android:id="@+id/viewPage"
-                            android:layout_width="360dp"
-                            android:layout_height="190dp"
-                            android:layout_marginLeft="1dp"
-                         />
+                            android:layout_width="match_parent"
+                            android:layout_height="190dp" />
+
                     </LinearLayout>
 
                     <me.relex.circleindicator.CircleIndicator
+                        android:id="@+id/circle_indi"
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
-                        android:id="@+id/circle_indi"
-                        android:layout_gravity="center"
-                        >
+                        android:layout_gravity="center">
+
                     </me.relex.circleindicator.CircleIndicator>
                 </LinearLayout>
 
             </RelativeLayout>
 
             <LinearLayout
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
-                android:layout_height="1050dp"
+                android:layout_height="400dp"
                 android:background="@drawable/card_background"
                 android:orientation="vertical">
 

@@ -82,6 +82,7 @@ public class Address extends AppCompatActivity implements Custom_dialog.ExampleD
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+
                 progressDialog.dismiss();
                 Log.i(TAG,response.toString());
 
@@ -241,7 +242,7 @@ public class Address extends AppCompatActivity implements Custom_dialog.ExampleD
     @Override
     public void applyText(String state, String district, String ward,String addressCustom) {
         txtAddressSpecific.setText(addressCustom);
-        txtAddress.setText(ward +","+district+","+state);
+        txtAddress.setText(ward +", "+district+", "+state);
     }
     private void AnhXa() {
         txtName = (TextView) findViewById(R.id.txtname1);

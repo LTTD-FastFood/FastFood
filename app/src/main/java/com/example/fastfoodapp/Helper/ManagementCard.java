@@ -44,7 +44,7 @@ public class ManagementCard {
         }
 
         tinyDB.putListObject("CardList", listFood);
-        Toast.makeText(context, "Added to your Cart", Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, "Đã thêm vào giỏ hàng", Toast.LENGTH_SHORT).show();
     }
 
     public void plusNumberFood(ArrayList<MonAn> listfood, int position, ChangeNumberItemListener changeNumberItemListener) {

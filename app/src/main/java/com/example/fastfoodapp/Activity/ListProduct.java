@@ -1,6 +1,8 @@
 package com.example.fastfoodapp.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -8,7 +10,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,8 +45,8 @@ public class ListProduct extends AppCompatActivity {
     TextView btnBackList;
     CardView cardView;
 
-    String urlBase= Utils.BASE_URL;
-    String url = Utils.BASE_URL+"Android/list_product/product.php";
+    String urlBase = Utils.BASE_URL;
+    String url = Utils.BASE_URL + "Android/list_product/product.php";
 
     MonAnListAdapter monAnListAdapter;
     RecyclerView recyclerView;
@@ -53,12 +61,17 @@ public class ListProduct extends AppCompatActivity {
         binding = ActivityListProductBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        Toolbar toolbar = findViewById(R.id.toolbar1);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         cainaylaNut();
 
         monAnList = new ArrayList<>();
         recyclerView = findViewById(R.id.lvmonan);
         recyclerView.setHasFixedSize(true);
-        layoutManager =new LinearLayoutManager(ListProduct.this,RecyclerView.VERTICAL,false);
+        layoutManager = new LinearLayoutManager(ListProduct.this, RecyclerView.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
         call_json();
 
@@ -70,7 +83,7 @@ public class ListProduct extends AppCompatActivity {
             @Override
             public void onResponse(JSONArray response) {
 
-                for (int i=0;i<response.length();i++){
+                for (int i = 0; i < response.length(); i++) {
                     MonAn getMonAnAdapter = new MonAn();
                     JSONObject jsonObject = null;
                     try {
@@ -92,13 +105,13 @@ public class ListProduct extends AppCompatActivity {
                     }
                     monAnList.add(getMonAnAdapter);
                 }
-                monAnListAdapter = new MonAnListAdapter(ListProduct.this,monAnList);
+                monAnListAdapter = new MonAnListAdapter(ListProduct.this, monAnList);
                 recyclerView.setAdapter(monAnListAdapter);
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.d("a",error.toString());
+                Log.d("a", error.toString());
 //                Toast.makeText(ListProduct.this, error.toString(), Toast.LENGTH_SHORT).show();
             }
         }
@@ -107,22 +120,50 @@ public class ListProduct extends AppCompatActivity {
         requestQueue.add(request);
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
+    private void filter(String text) {
+        ArrayList<MonAn> filteredList = new ArrayList<>();
+
+        for (MonAn item : monAnList) {
+            if (item.getTenMon().toLowerCase().contains(text.toLowerCase())) {
+                filteredList.add(item);
+
+            }
+        }
+
+//        recyclerViewAdapter = new CustomerListAdapter(customerList,getActivity());
+        monAnListAdapter.filterList(filteredList);
 
     }
 
-    private void cainaylaNut() {
-        btnBackList=(TextView) findViewById(R.id.btnBackList);
-        btnBackList.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.menu_search, menu);
+
+        MenuItem menuItem = menu.findItem(R.id.action_search);
+        androidx.appcompat.widget.SearchView searchView = (androidx.appcompat.widget.SearchView) menuItem.getActionView();
+        searchView.setQueryHint("Tìm kiếm...");
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public void onClick(View view) {
-                startActivity(new Intent(ListProduct.this, Home.class));
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                filter(newText);
+                return false;
             }
         });
-        cardView=(CardView) findViewById(R.id.cardView);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    private void cainaylaNut() {
+
+        cardView = (CardView) findViewById(R.id.cardView);
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -39,26 +39,26 @@ public class Custom_dialog extends AppCompatDialogFragment {
 
     private ExampleDialogListener listener;
 
-    Spinner stateSpinner,districtSpinner,wardSpinner;
-    String selectedState,selectedDistrict,selectedWard,AddressCustom;
-    TextView tvWard,tvAddress;
+    Spinner stateSpinner, districtSpinner, wardSpinner;
+    String selectedState, selectedDistrict, selectedWard, AddressCustom;
+    TextView tvWard, tvAddress,tvState,tvDistrict;
     EditText edtDiachi;
 
     ArrayList<String> stateList = new ArrayList<>();
     ArrayList<String> districtList = new ArrayList<>();
     ArrayList<String> wardList = new ArrayList<>();
-    ArrayAdapter<String> stateAdapter,districtAdapter,wardAdapter;
+    ArrayAdapter<String> stateAdapter, districtAdapter, wardAdapter;
     RequestQueue requestQueue;
     String urlState = Utils.BASE_URL + "Android/address/populate_state.php";
 
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext(),R.style.MyDialogTheme);
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext(), R.style.MyDialogTheme);
 
         LayoutInflater inflater = getActivity().getLayoutInflater();
 
-        View view = inflater.inflate(R.layout.dialog,null);
+        View view = inflater.inflate(R.layout.dialog, null);
 
         requestQueue = Volley.newRequestQueue(getContext());
 
@@ -66,6 +66,8 @@ public class Custom_dialog extends AppCompatDialogFragment {
         districtSpinner = view.findViewById(R.id.spinner2);
         wardSpinner = view.findViewById(R.id.spinner3);
         tvWard = view.findViewById(R.id.textView4);
+        tvState = view.findViewById(R.id.textView2);
+        tvDistrict = view.findViewById(R.id.textView3);
         tvAddress = view.findViewById(R.id.cuthe);
         edtDiachi = view.findViewById(R.id.edtdiachi);
 
@@ -87,34 +89,36 @@ public class Custom_dialog extends AppCompatDialogFragment {
                         selectedWard = wardSpinner.getSelectedItem().toString();
                         AddressCustom = edtDiachi.getText().toString().trim();
 
-                        listener.applyText(selectedState,selectedDistrict,selectedWard,AddressCustom);
+//                        if (selectedDistrict == null){
+//                            tvDistrict.setError("Chưa chọn!");
+//                            tvDistrict.requestFocus();
+//                        }else {
+//                            if (selectedWard == null){
+//                                tvDistrict.setError(null);
+//                                tvWard.setError("Chưa chọn!");
+//                                tvWard.requestFocus();
+//                            }else {
+//                                if (AddressCustom == null){
+//                                    tvDistrict.setError(null);
+//                                    tvWard.setError(null);
+//                                    tvAddress.setError("Chưa điền!");
+//                                    tvAddress.requestFocus();
+//                                }else {
+//
+//                                    tvDistrict.setError(null);
+//                                    tvWard.setError(null);
+//                                    tvAddress.setError(null);
+
+                                    listener.applyText(selectedState, selectedDistrict, selectedWard, AddressCustom);
+
+//                                }
+//                            }
+//                        }
+//
 
 
                     }
                 });
-//        AlertDialog dialog = builder.create();
-//        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//
-////                if (wardSpinner.getSelectedItem() == null){
-////                    tvWard.setError("Chưa chọn!");
-////                    tvWard.requestFocus();
-////                }else {
-//                    if(TextUtils.isEmpty(AddressCustom)){
-////                        tvWard.setError(null);
-//                        tvAddress.setError("Chưa điền!");
-//                        tvAddress.requestFocus();
-//                    }else{
-////                        tvWard.setError(null);
-//                        tvAddress.setError(null);
-//
-//
-//                    }
-////                }
-//            }
-//        });
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, urlState,
                 null, new Response.Listener<JSONObject>() {
@@ -122,11 +126,11 @@ public class Custom_dialog extends AppCompatDialogFragment {
             public void onResponse(JSONObject response) {
                 try {
                     JSONArray jsonArray = response.getJSONArray(("state"));
-                    for (int i=0;i<jsonArray.length();i++){
+                    for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
                         String stateName = jsonObject.optString("state_name");
                         stateList.add(stateName);
-                        stateAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item,stateList);
+                        stateAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, stateList);
                         stateAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         stateSpinner.setAdapter(stateAdapter);
                     }
@@ -149,24 +153,25 @@ public class Custom_dialog extends AppCompatDialogFragment {
 
         return builder.create();
     }
+
     private AdapterView.OnItemSelectedListener state = new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-            if(i>0){
+            if (i > 0) {
                 districtList.clear();
                 selectedDistrict = stateSpinner.getSelectedItem().toString();
-                String urlDistrict = Utils.BASE_URL + "Android/address/populate_district.php?state_name="+selectedDistrict;
+                String urlDistrict = Utils.BASE_URL + "Android/address/populate_district.php?state_name=" + selectedDistrict;
                 JsonObjectRequest jsonObjectRequest1 = new JsonObjectRequest(Request.Method.POST, urlDistrict, null,
                         new Response.Listener<JSONObject>() {
                             @Override
                             public void onResponse(JSONObject response) {
                                 try {
                                     JSONArray jsonArray = response.getJSONArray("district");
-                                    for (int i=0;i<jsonArray.length();i++){
+                                    for (int i = 0; i < jsonArray.length(); i++) {
                                         JSONObject jsonObject = jsonArray.getJSONObject(i);
                                         String districtName = jsonObject.optString("district_name");
                                         districtList.add(districtName);
-                                        districtAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item,districtList);
+                                        districtAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, districtList);
                                         districtAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                                         districtSpinner.setAdapter(districtAdapter);
                                     }
@@ -195,10 +200,10 @@ public class Custom_dialog extends AppCompatDialogFragment {
     private AdapterView.OnItemSelectedListener district = new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-            if(i>0){
+            if (i > 0) {
                 wardList.clear();
                 selectedWard = districtSpinner.getSelectedItem().toString();
-                String urlWard = Utils.BASE_URL + "Android/address/populate_ward.php?district_name="+selectedWard;
+                String urlWard = Utils.BASE_URL + "Android/address/populate_ward.php?district_name=" + selectedWard;
 
                 JsonObjectRequest jsonObjectRequest2 = new JsonObjectRequest(Request.Method.POST, urlWard, null,
                         new Response.Listener<JSONObject>() {
@@ -206,11 +211,11 @@ public class Custom_dialog extends AppCompatDialogFragment {
                             public void onResponse(JSONObject response) {
                                 try {
                                     JSONArray jsonArray = response.getJSONArray("ward");
-                                    for (int i=0;i<jsonArray.length();i++){
+                                    for (int i = 0; i < jsonArray.length(); i++) {
                                         JSONObject jsonObject = jsonArray.getJSONObject(i);
                                         String wardName = jsonObject.optString("ward_name");
                                         wardList.add(wardName);
-                                        wardAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item,wardList);
+                                        wardAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, wardList);
                                         wardAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                                         wardSpinner.setAdapter(wardAdapter);
                                     }
@@ -261,7 +266,7 @@ public class Custom_dialog extends AppCompatDialogFragment {
         }
     }
 
-    public interface ExampleDialogListener{
-        void applyText(String state,String district,String ward,String addressCustom);
+    public interface ExampleDialogListener {
+        void applyText(String state, String district, String ward, String addressCustom);
     }
 }

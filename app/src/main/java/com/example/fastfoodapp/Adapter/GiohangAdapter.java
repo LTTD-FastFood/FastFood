@@ -108,4 +108,8 @@ public class GiohangAdapter extends RecyclerView.Adapter<GiohangAdapter.ViewHold
         }
     }
 
+    public void filterList(ArrayList<MonAn> filteredList) {
+        monAns = filteredList;
+        notifyDataSetChanged();
+    }
 }
