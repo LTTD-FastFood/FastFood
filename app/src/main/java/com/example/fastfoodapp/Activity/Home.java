@@ -22,6 +22,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.fastfoodapp.Adapter.MonAnListAdapter;
+import com.example.fastfoodapp.Adapter.PhoBienAdapter;
 import com.example.fastfoodapp.Adapter.PhotoAdapter;
 import com.example.fastfoodapp.Model.MonAn;
 import com.example.fastfoodapp.R;
@@ -64,7 +65,7 @@ public class Home extends AppCompatActivity {
     String urlBase= Utils.BASE_URL;
     String url = Utils.BASE_URL+"Android/list_product/producttop.php";
 
-    MonAnListAdapter monAnListAdapter;
+    PhoBienAdapter phoBienAdapter;
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     JsonArrayRequest request;
@@ -136,7 +137,7 @@ public class Home extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                filter(edtSearch.toString());
+//                filter(edtSearch.toString());
             }
         });
     }
@@ -167,7 +168,7 @@ public class Home extends AppCompatActivity {
         }
 
 //        recyclerViewAdapter = new CustomerListAdapter(customerList,getActivity());
-        monAnListAdapter.filterList(filteredList);
+        phoBienAdapter.filterList(filteredList);
 
     }
 
@@ -198,8 +199,8 @@ public class Home extends AppCompatActivity {
                     }
                     monAnList.add(getMonAnAdapter);
                 }
-                monAnListAdapter = new MonAnListAdapter(Home.this,monAnList);
-                recyclerView.setAdapter(monAnListAdapter);
+                phoBienAdapter = new PhoBienAdapter(Home.this,monAnList);
+                recyclerView.setAdapter(phoBienAdapter);
             }
         }, new Response.ErrorListener() {
             @Override

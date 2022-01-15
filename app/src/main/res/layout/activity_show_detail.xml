@@ -47,13 +47,15 @@
                 android:id="@+id/relativeLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
                     android:id="@+id/foodPic"
+                    android:layout_marginTop="20dp"
                     android:layout_width="match_parent"
-                    android:layout_height="280dp"
+                    android:layout_height="240dp"
                     app:srcCompat="@drawable/pizza1" />
 
                 <LinearLayout

@@ -48,25 +48,26 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class History extends AppCompatActivity {
+public class HistoryDetails extends AppCompatActivity {
 
-    private static final String TAG = MyOrder.class.getSimpleName();
+//    private static final String TAG = MyOrder.class.getSimpleName();
 
     ActivityHistoryBinding binding;
 
     RelativeLayout btnProfile,btnProduct,btnHome;
 
-    String url = Utils.BASE_URL+"Android/donhang/donhang.php";
+    String url = Utils.BASE_URL+"Android/ViewHistory.php";
     String urlBase= Utils.BASE_URL;
-
+    LichSuDH lichSuDH;
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
-    ArrayList<LichSuDH> lichsuList;
-    LichSuDHApdater lichSuDHApdater;
+    ArrayList<LichSu> lichsuList;
+    LichSuApdapter lichSuApdapter;
     StringRequest request;
     RequestQueue requestQueue;
 
     String getId;
+    String MaHD;
     SessionManager sessionManager;
 
     @Override
@@ -84,12 +85,24 @@ public class History extends AppCompatActivity {
         HashMap<String, String> user = sessionManager.getUserDetail();
         getId = user.get(sessionManager.ID);
 
+        final Object object = getIntent().getSerializableExtra("detailOrder");
+        Log.d("donhangdsds", lichSuDH.toString());
+        if (object instanceof LichSuDH) {
+            lichSuDH = (LichSuDH) object;
+            Log.d("donhangdsds", lichSuDH.toString());
+        }
+
+         MaHD= lichSuDH.getMaHD() +"";
+//        TenKH = (TextView) findViewById(R.id.TenKH);
+//        SDT = (TextView) findViewById(R.id.SDT);
+//        TongTien = (TextView) findViewById(R.id.TongTien);
+
         CainaylaNut();
 
         lichsuList = new ArrayList<>();
         recyclerView = findViewById(R.id.recHistory);
         recyclerView.setHasFixedSize(true);
-        layoutManager =new LinearLayoutManager(History.this,RecyclerView.VERTICAL,false);
+        layoutManager =new LinearLayoutManager(HistoryDetails.this,RecyclerView.VERTICAL,false);
         recyclerView.setLayoutManager(layoutManager);
         call_json();
 
@@ -102,7 +115,7 @@ public class History extends AppCompatActivity {
             public void onResponse(String response) {
                 try {
                     JSONArray j = new JSONArray(response);
-                    Log.d("datajsd", j.toString());
+
                     for (int i = 0; i < j.length(); i++) {
 
                         JSONObject jsonObject = null;
@@ -110,16 +123,13 @@ public class History extends AppCompatActivity {
 
 
 
-                        LichSuDH getLichSuAdapter = new LichSuDH();
+                        LichSu getLichSuAdapter = new LichSu();
 
-                        getLichSuAdapter.setMaHD(jsonObject.getInt("MaHD"));
+                        getLichSuAdapter.setImgFood(jsonObject.getString("imgFood"));
+
                         getLichSuAdapter.setDonGia(jsonObject.getInt("DonGia"));
-                        getLichSuAdapter.setNgayBan(jsonObject.getString("NgayBan"));
-                        getLichSuAdapter.setDiaChi(jsonObject.getString("address"));
-                        getLichSuAdapter.setTenKH(jsonObject.getString("name"));
-                        getLichSuAdapter.setSDT(jsonObject.getString("phone"));
-
-
+                        getLichSuAdapter.setSoluong(jsonObject.getInt("SoLuong"));
+                        getLichSuAdapter.setNameFood(jsonObject.getString("nameFood"));
 
                         lichsuList.add(getLichSuAdapter);
 
@@ -127,13 +137,13 @@ public class History extends AppCompatActivity {
                 }catch (JSONException e) {
                     e.printStackTrace();
                 }
-                lichSuDHApdater = new LichSuDHApdater(History.this, lichsuList);
-                recyclerView.setAdapter(lichSuDHApdater);
+                lichSuApdapter = new LichSuApdapter(HistoryDetails.this, lichsuList);
+                recyclerView.setAdapter(lichSuApdapter);
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(History.this, error.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(HistoryDetails.this, error.toString(), Toast.LENGTH_SHORT).show();
             }
         }
         ){
@@ -141,27 +151,27 @@ public class History extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String,String> param = new HashMap<>();
-                param.put("MaKH",getId);
+                param.put("MaHD",MaHD);
 
                 return param;
             }
         };
-        requestQueue = Volley.newRequestQueue(History.this);
+        requestQueue = Volley.newRequestQueue(HistoryDetails.this);
         requestQueue.add(request);
     }
 
     private void filter(String text) {
-        ArrayList<LichSuDH> filteredList = new ArrayList<>();
+        ArrayList<LichSu> filteredList = new ArrayList<>();
 
-        for (LichSuDH item : lichsuList) {
-            if (item.getNgayBan().toLowerCase().contains(text.toLowerCase())) {
+        for (LichSu item : lichsuList) {
+            if (item.getNameFood().toLowerCase().contains(text.toLowerCase())) {
                 filteredList.add(item);
 
             }
         }
 
 //        recyclerViewAdapter = new CustomerListAdapter(customerList,getActivity());
-        lichSuDHApdater.filterList(filteredList);
+        lichSuApdapter.filterList(filteredList);
 
     }
 
@@ -197,7 +207,7 @@ public class History extends AppCompatActivity {
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(History.this, Home.class));
+                startActivity(new Intent(HistoryDetails.this, Home.class));
                 overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
 
             }
@@ -207,7 +217,7 @@ public class History extends AppCompatActivity {
         btnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(History.this, Profile.class));
+                startActivity(new Intent(HistoryDetails.this, Profile.class));
                 overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
             }
@@ -217,7 +227,7 @@ public class History extends AppCompatActivity {
         btnProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(History.this, ListProduct.class));
+                startActivity(new Intent(HistoryDetails.this, ListProduct.class));
                 overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
 
             }

@@ -15,32 +15,41 @@
         android:orientation="vertical"
         android:paddingBottom="10dp">
 
+
         <androidx.cardview.widget.CardView
             android:id="@+id/view2"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+
+            android:background="#F80808"
+
             android:elevation="12dp"
-            app:cardCornerRadius="40dp">
+            app:cardCornerRadius="20dp">
 
             <ImageView
-                android:id="@+id/Product1"
+                android:id="@+id/imageviewAnh"
                 android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:background="@color/main"
+
+
                 android:layout_height="match_parent"
-                android:scaleType="centerCrop"
+
                 android:src="@drawable/burger1" />
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/txtTen"
+            android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
             android:text="Bánh mỳ kẹp"
-            android:textColor="#373b54"
+            android:textColor="#302B2B"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -55,12 +64,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
             <TextView
-                android:id="@+id/txtGia"
+                android:id="@+id/gia"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="20dp"
                 android:text="90đ"
-                android:textColor="#FF0000"
+                android:textColor="#D80E0E"
                 android:textSize="18sp" />
 
 
@@ -68,6 +77,8 @@
             <LinearLayout
                 android:layout_weight="1"
                 android:layout_width="match_parent"
+                android:gravity="right"
+                android:layout_marginRight="20dp"
                 android:layout_height="wrap_content">
 
             <TextView
@@ -80,11 +91,12 @@
 
             <TextView
                 android:layout_marginLeft="5dp"
-                android:id="@+id/txtSao"
+                android:id="@+id/star"
                 android:layout_width="wrap_content"
+                android:layout_gravity="right"
                 android:layout_height="wrap_content"
                 android:text="4.9"
-                android:textColor="#373b54"
+                android:textColor="#433D3D"
                 android:textSize="18sp" />
             </LinearLayout>
 

@@ -72,22 +72,26 @@
 
             <ImageView
                 android:layout_weight="1"
-                android:layout_height="50dp"
-                android:layout_width="70dp"
+                android:layout_height="32dp"
+                android:layout_gravity="bottom|center"
+                android:layout_width="32dp"
+                android:layout_marginBottom="4dp"
                 android:layout_marginRight="7dp"
                 android:src="@drawable/account"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="wrap_content"
+                android:layout_gravity="center"
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:layout_marginRight="19dp"
                     android:id="@+id/txtname"
                     android:layout_width="285dp"
-                    android:focusableInTouchMode="false"
                     android:layout_height="45dp"
-                    android:hint="Name"
+
+
+                    android:focusableInTouchMode="false"
+                    android:hint="Họ và tên"
                     android:inputType="textPersonName" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -105,22 +109,25 @@
 
             <ImageView
                 android:layout_weight="1"
-                android:layout_height="50dp"
-                android:layout_width="70dp"
+                android:layout_height="32dp"
+                android:layout_gravity="bottom|center"
+                android:layout_width="32dp"
+                android:layout_marginBottom="4dp"
                 android:layout_marginRight="7dp"
                 android:src="@drawable/day"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="wrap_content"
+                android:layout_gravity="center"
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:layout_marginRight="19dp"
+
                     android:id="@+id/dayofbirth"
                     android:layout_width="285dp"
                     android:layout_height="45dp"
                     android:focusableInTouchMode="false"
-                    android:hint="Date Of Birth"
+                    android:hint="Ngày sinh"
                     android:inputType="date" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -137,23 +144,26 @@
 
             <ImageView
                 android:layout_weight="1"
-                android:layout_height="50dp"
-                android:layout_width="70dp"
+                android:layout_height="32dp"
+                android:layout_gravity="bottom|center"
+                android:layout_width="32dp"
+                android:layout_marginBottom="4dp"
                 android:layout_marginRight="7dp"
                 android:src="@drawable/phone" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="wrap_content"
+                android:layout_gravity="center"
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:layout_marginRight="19dp"
+
                     android:id="@+id/phone"
                     android:focusableInTouchMode="false"
                     android:layout_width="285dp"
                     android:layout_height="45dp"
                     android:maxLength="10"
-                    android:hint="Phone"
+                    android:hint="Số điện thoại"
                     android:inputType="phone" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -178,17 +188,20 @@
 
             <ImageView
                 android:layout_weight="1"
-                android:layout_height="50dp"
-                android:layout_width="70dp"
+                android:layout_height="32dp"
+                android:layout_gravity="bottom|center"
+                android:layout_width="32dp"
+                android:layout_marginBottom="4dp"
                 android:layout_marginRight="7dp"
                 android:src="@drawable/icon_mail" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="wrap_content"
+                android:layout_gravity="center"
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:layout_marginRight="19dp"
+
                     android:id="@+id/mail"
                     android:layout_width="285dp"
                     android:focusableInTouchMode="false"

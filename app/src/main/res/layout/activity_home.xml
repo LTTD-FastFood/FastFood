@@ -110,12 +110,17 @@
                         android:layout_width="match_parent"
                         android:layout_height="190dp"
                         android:layout_gravity="center"
-                        android:layout_marginTop="5dp">
+                        android:layout_marginTop="5dp"
+
+                        >
 
                         <androidx.viewpager.widget.ViewPager
                             android:id="@+id/viewPage"
                             android:layout_width="match_parent"
-                            android:layout_height="190dp" />
+                            android:layout_height="190dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:background="@drawable/edt_find" />
 
                     </LinearLayout>
 
@@ -133,7 +138,7 @@
             <LinearLayout
                 android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
+                android:layout_height="1000dp"
                 android:background="@drawable/card_background"
                 android:orientation="vertical">
 

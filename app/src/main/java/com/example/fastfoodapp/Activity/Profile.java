@@ -24,6 +24,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -92,6 +93,7 @@ public class Profile extends AppCompatActivity {
 
         HashMap<String,String> user = sessionManager.getUserDetail();
         getId = user.get(sessionManager.ID);
+        getUserDetail();
 
         edit_photo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -173,7 +175,11 @@ public class Profile extends AppCompatActivity {
                             mail.setText(F_email);
                             phone.setText(F_phone);
                             birth.setText(F_dateofbirth);
-                            Glide.with(Profile.this).load(F_img).into(profile_image);
+
+//                            Glide.with(holder.itemView.getContext()).load(monAns.get(position).getHinhMon()).into(holder.hinhMon);
+//                            Glide.with(Profile.this).load(F_img).into(profile_image);
+                            Glide.with(getApplicationContext()).load(F_img).into(profile_image);
+
 
 
                         }
@@ -208,7 +214,7 @@ public class Profile extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        getUserDetail();
+
     }
 
     @Override
@@ -350,6 +356,8 @@ public class Profile extends AppCompatActivity {
                 e.printStackTrace();
             }
             UploadPicture(getId,getStringImage(bitmap));
+
+
         }
     }
 
@@ -396,6 +404,7 @@ public class Profile extends AppCompatActivity {
         };
         RequestQueue requestQueue = Volley.newRequestQueue(Profile.this);
         requestQueue.add(stringRequest);
+
     }
 
     public String getStringImage(Bitmap bitmap){
@@ -420,7 +429,7 @@ public class Profile extends AppCompatActivity {
         btnHome=(RelativeLayout) findViewById(R.id.btnHome);
 
         edit_photo = (ImageButton) findViewById(R.id.edit_photo);
-        profile_image = findViewById(R.id.profile_image1);
+        profile_image = (CircleImageView)findViewById(R.id.profile_image1);
     }
     @Override
     public boolean onSupportNavigateUp() {

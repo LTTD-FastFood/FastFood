@@ -37,6 +37,12 @@
             android:theme="@style/MyEditProfile"
             android:exported="true" />
         <activity
+            android:name=".Activity.HistoryDetails"
+            android:label=" "
+            android:parentActivityName=".Activity.Home"
+            android:theme="@style/MyEditProfile"
+            android:exported="true" />
+        <activity
             android:name=".Activity.ShowDetail"
             android:label=""
             android:parentActivityName=".Activity.Home"

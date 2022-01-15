@@ -50,6 +50,7 @@ public class Custom_dialog extends AppCompatDialogFragment {
     ArrayAdapter<String> stateAdapter, districtAdapter, wardAdapter;
     RequestQueue requestQueue;
     String urlState = Utils.BASE_URL + "Android/address/populate_state.php";
+//    String urlState="https://provinces.open-api.vn/api/?depth=3";
 
     @NonNull
     @Override
@@ -129,6 +130,7 @@ public class Custom_dialog extends AppCompatDialogFragment {
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
                         String stateName = jsonObject.optString("state_name");
+//                        String stateName = jsonObject.optString("name");
                         stateList.add(stateName);
                         stateAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, stateList);
                         stateAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

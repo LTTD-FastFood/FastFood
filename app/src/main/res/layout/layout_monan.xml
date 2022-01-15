@@ -22,7 +22,7 @@
         android:layout_marginLeft="300dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="23dp"
-        android:background="#59C1A4"
+        android:background="#4AD14D"
         android:text="Thêm"
         android:textColor="@color/white" />
 
