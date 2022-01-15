@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content">
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/profile_image"
+                    android:id="@+id/profile_imageHome"
                     android:layout_width="55dp"
                     android:layout_height="55dp"
                     android:src="@drawable/lisa"
@@ -44,7 +44,7 @@
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/textView10"
+                        android:id="@+id/tvuserName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"

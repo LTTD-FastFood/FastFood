@@ -71,8 +71,6 @@ public class Home extends AppCompatActivity {
     RequestQueue requestQueue;
     ArrayList<MonAn> monAnList;
 
-
-
     CircleImageView profile_image;
     TextView myCart;
     RelativeLayout btnProfile,btnHistory,btnProduct;
@@ -89,7 +87,6 @@ public class Home extends AppCompatActivity {
         layoutManager =new LinearLayoutManager(Home.this,RecyclerView.VERTICAL,false);
         recyclerView.setLayoutManager(layoutManager);
         call_json();
-
 
 
         viewPager = findViewById(R.id.viewPage);
@@ -255,7 +252,7 @@ public class Home extends AppCompatActivity {
         });
 
 
-        profile_image=(CircleImageView) findViewById(R.id.profile_image);
+        profile_image=(CircleImageView) findViewById(R.id.profile_imageHome);
         profile_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

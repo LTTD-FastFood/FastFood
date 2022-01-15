@@ -126,15 +126,24 @@ public class MyCart extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MyCart.this, MyOrder.class));
+                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+
             }
         });
 
     }
 
     private void CalculateCard() {
-
         tong_format = NumberFormat.getNumberInstance(Locale.US).format(managementCard.getTotalFee());
         tvTong.setText(tong_format + "đ");
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
+
+        return true;
     }
 
     private void AnhXa() {

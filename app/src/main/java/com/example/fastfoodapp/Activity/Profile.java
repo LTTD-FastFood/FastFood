@@ -107,6 +107,8 @@ public class Profile extends AppCompatActivity {
                 editor.putString(getResources().getString(R.string.preLoginState),"LoggedOut");
                 editor.apply();
                 startActivity(new Intent(Profile.this, Signin.class));
+                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+
                 finish();
 //                sessionManager.Logout();
             }
@@ -116,6 +118,8 @@ public class Profile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Profile.this, Home.class));
+                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
+
             }
         });
 
@@ -124,17 +128,19 @@ public class Profile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Profile.this, ListProduct.class));
+                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
+
             }
         });
 
         btnHistory.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Profile.this, History.class));
+            public void onClick(View view) {                startActivity(new Intent(Profile.this, History.class));
+                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
+
             }
         });
     }
-
 
     //getDetail
     private void getUserDetail(){
@@ -416,5 +422,11 @@ public class Profile extends AppCompatActivity {
         edit_photo = (ImageButton) findViewById(R.id.edit_photo);
         profile_image = findViewById(R.id.profile_image1);
     }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
 
+        return true;
+    }
 }

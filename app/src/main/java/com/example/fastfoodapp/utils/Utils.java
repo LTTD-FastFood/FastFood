@@ -11,8 +11,9 @@ import java.util.List;
 
 public class Utils {
 
-    public static final String BASE_URL="http://192.168.1.10/";
+    public static final String BASE_URL="http://192.168.1.5/";
     public static String getId = null;
+    public static int giatriVoucher;
 
 
 }

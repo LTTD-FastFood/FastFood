@@ -116,7 +116,7 @@ public class Signin extends AppCompatActivity {
                             sessionManager.createSession2(name,phone,address,addressSpecific,id);
 
                             progressDialog.dismiss();
-                            Toast.makeText(Signin.this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Signin.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
 
                             SharedPreferences.Editor editor = sharedPreferences.edit();
                             if(checkBox.isChecked()){
@@ -168,4 +168,11 @@ public class Signin extends AppCompatActivity {
         checkBox = (CheckBox) findViewById(R.id.cbBox);
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
+
+        return true;
+    }
 }

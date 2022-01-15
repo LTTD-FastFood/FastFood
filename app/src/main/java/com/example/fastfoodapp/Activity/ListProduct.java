@@ -168,7 +168,16 @@ public class ListProduct extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(ListProduct.this, MyCart.class));
+                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+
             }
         });
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
+
+        return true;
     }
 }

@@ -250,4 +250,11 @@ public class Address extends AppCompatActivity implements Custom_dialog.ExampleD
         txtAddress = (TextView) findViewById(R.id.txtAddress);
         txtAddressSpecific = (TextView) findViewById(R.id.txtAddressSpecific);
     }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
+
+        return true;
+    }
 }

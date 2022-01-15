@@ -77,18 +77,22 @@
         <entry key="..\:/LTDD/LiThuyet/FastFoodd/app/src/main/res/layout/activity_profile.xml" value="0.2" />
         <entry key="..\:/LTDD/LiThuyet/FastFoodd/app/src/main/res/layout/activity_show_detail.xml" value="0.20897435897435898" />
         <entry key="..\:/LTDD/LiThuyet/FastFoodd/app/src/main/res/layout/layout_monan.xml" value="0.20897435897435898" />
+        <entry key="..\:/LTDD/LiThuyet/ProjectFastFood/FastFood/app/src/main/res/drawable/account.xml" value="0.21940928270042195" />
         <entry key="..\:/LTDD/LiThuyet/ProjectFastFood/FastFood/app/src/main/res/drawable/custom_ratingbar_selector.xml" value="0.21940928270042195" />
         <entry key="..\:/LTDD/LiThuyet/ProjectFastFood/FastFood/app/src/main/res/drawable/day.xml" value="0.21940928270042195" />
         <entry key="..\:/LTDD/LiThuyet/ProjectFastFood/FastFood/app/src/main/res/drawable/home_active.xml" value="0.21940928270042195" />
+        <entry key="..\:/LTDD/LiThuyet/ProjectFastFood/FastFood/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.21940928270042195" />
         <entry key="..\:/LTDD/LiThuyet/ProjectFastFood/FastFood/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.21940928270042195" />
         <entry key="..\:/LTDD/LiThuyet/ProjectFastFood/FastFood/app/src/main/res/drawable/ic_order_24.xml" value="0.21940928270042195" />
         <entry key="..\:/LTDD/LiThuyet/ProjectFastFood/FastFood/app/src/main/res/drawable/icon_mail.xml" value="0.21940928270042195" />
+        <entry key="..\:/LTDD/LiThuyet/ProjectFastFood/FastFood/app/src/main/res/drawable/icon_user.xml" value="0.21940928270042195" />
         <entry key="..\:/LTDD/LiThuyet/ProjectFastFood/FastFood/app/src/main/res/drawable/listproduct3.xml" value="0.21940928270042195" />
         <entry key="..\:/LTDD/LiThuyet/ProjectFastFood/FastFood/app/src/main/res/drawable/phone.xml" value="0.21940928270042195" />
         <entry key="..\:/LTDD/LiThuyet/ProjectFastFood/FastFood/app/src/main/res/drawable/search.xml" value="0.21940928270042195" />
         <entry key="..\:/LTDD/LiThuyet/ProjectFastFood/FastFood/app/src/main/res/drawable/star.xml" value="0.21940928270042195" />
         <entry key="..\:/LTDD/LiThuyet/ProjectFastFood/FastFood/app/src/main/res/drawable/star_off.xml" value="0.21940928270042195" />
         <entry key="..\:/LTDD/LiThuyet/ProjectFastFood/FastFood/app/src/main/res/layout/activity_address.xml" value="0.2" />
+        <entry key="..\:/LTDD/LiThuyet/ProjectFastFood/FastFood/app/src/main/res/layout/activity_check_out.xml" value="0.268" />
         <entry key="..\:/LTDD/LiThuyet/ProjectFastFood/FastFood/app/src/main/res/layout/activity_history.xml" value="0.20897435897435898" />
         <entry key="..\:/LTDD/LiThuyet/ProjectFastFood/FastFood/app/src/main/res/layout/activity_home.xml" value="0.2" />
         <entry key="..\:/LTDD/LiThuyet/ProjectFastFood/FastFood/app/src/main/res/layout/activity_home2.xml" value="0.20897435897435898" />
@@ -98,8 +102,10 @@
         <entry key="..\:/LTDD/LiThuyet/ProjectFastFood/FastFood/app/src/main/res/layout/activity_profile.xml" value="0.20897435897435898" />
         <entry key="..\:/LTDD/LiThuyet/ProjectFastFood/FastFood/app/src/main/res/layout/activity_show_detail.xml" value="0.20897435897435898" />
         <entry key="..\:/LTDD/LiThuyet/ProjectFastFood/FastFood/app/src/main/res/layout/activity_sign_in.xml" value="0.20897435897435898" />
+        <entry key="..\:/LTDD/LiThuyet/ProjectFastFood/FastFood/app/src/main/res/layout/activity_sign_up.xml" value="0.20897435897435898" />
         <entry key="..\:/LTDD/LiThuyet/ProjectFastFood/FastFood/app/src/main/res/layout/custom_ratingbar_selector.xml" value="0.20897435897435898" />
         <entry key="..\:/LTDD/LiThuyet/ProjectFastFood/FastFood/app/src/main/res/layout/dialog.xml" value="0.20897435897435898" />
+        <entry key="..\:/LTDD/LiThuyet/ProjectFastFood/FastFood/app/src/main/res/layout/dialog_voucher.xml" value="0.2" />
         <entry key="..\:/LTDD/LiThuyet/ProjectFastFood/FastFood/app/src/main/res/layout/fragment_breakfast.xml" value="0.20897435897435898" />
         <entry key="..\:/LTDD/LiThuyet/ProjectFastFood/FastFood/app/src/main/res/layout/fragment_dinner.xml" value="0.20897435897435898" />
         <entry key="..\:/LTDD/LiThuyet/ProjectFastFood/FastFood/app/src/main/res/layout/fragment_lunch.xml" value="0.20897435897435898" />
@@ -109,7 +115,9 @@
         <entry key="..\:/LTDD/LiThuyet/ProjectFastFood/FastFood/app/src/main/res/layout/product_myorder.xml" value="0.20897435897435898" />
         <entry key="..\:/LTDD/LiThuyet/ProjectFastFood/FastFood/app/src/main/res/layout/toolbar.xml" value="0.20897435897435898" />
         <entry key="..\:/LTDD/LiThuyet/ProjectFastFood/FastFood/app/src/main/res/menu/menu_action.xml" value="0.20897435897435898" />
+        <entry key="..\:/LTDD/LiThuyet/ProjectFastFood/FastFood/app/src/main/res/menu/menu_cart.xml" value="0.20897435897435898" />
         <entry key="..\:/LTDD/LiThuyet/ProjectFastFood/FastFood/app/src/main/res/menu/menu_cham.xml" value="0.20897435897435898" />
+        <entry key="..\:/LTDD/LiThuyet/ProjectFastFood/FastFood/app/src/main/res/menu/menu_more.xml" value="0.20897435897435898" />
         <entry key="..\:/LTDD/LiThuyet/ProjectFastFood/FastFood/app/src/main/res/menu/menu_search.xml" value="0.20897435897435898" />
         <entry key="..\:/LTDD/ProjectAppFood/FastFoodApp1/FastFoodApp1/app/src/main/res/drawable-v24/address_add.xml" value="0.22179487179487178" />
         <entry key="..\:/LTDD/ProjectAppFood/FastFoodApp1/FastFoodApp1/app/src/main/res/drawable/account.xml" value="0.22179487179487178" />

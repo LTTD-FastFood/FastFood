@@ -108,6 +108,8 @@ public class SignUp extends AppCompatActivity {
                 if(response.equals("You are registered successfully")){
                     Toast.makeText(SignUp.this, "Đăng kí thành công!", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(SignUp.this,Signin.class));
+                    overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+
                     progressDialog.dismiss();
                     finish();
                 }else{
@@ -138,6 +140,11 @@ public class SignUp extends AppCompatActivity {
         MySingleton.getmInstance(SignUp.this).addToRequestQueue(request);
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
-
+        return true;
+    }
 }

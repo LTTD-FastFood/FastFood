@@ -192,6 +192,8 @@ public class History extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(History.this, Home.class));
+                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
+
             }
         });
 
@@ -200,6 +202,8 @@ public class History extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(History.this, Profile.class));
+                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+
             }
         });
 
@@ -208,8 +212,16 @@ public class History extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(History.this, ListProduct.class));
+                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
+
             }
         });
     }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
 
+        return true;
+    }
 }

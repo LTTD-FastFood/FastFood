@@ -15,7 +15,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.fastfoodapp.Helper.ManagementCard;
@@ -92,12 +91,14 @@ public class ShowDetail extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_cham,menu);
+        menuInflater.inflate(R.menu.menu_cart,menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        startActivity(new Intent(ShowDetail.this,MyCart.class));
 
         return super.onOptionsItemSelected(item);
     }

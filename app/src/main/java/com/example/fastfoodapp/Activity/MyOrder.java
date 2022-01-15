@@ -11,6 +11,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -30,6 +31,7 @@ import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.example.fastfoodapp.Adapter.GiohangAdapter;
 import com.example.fastfoodapp.Adapter.OrderAdapter;
+import com.example.fastfoodapp.App.Custom_dialogVoucher;
 import com.example.fastfoodapp.App.MySingleton;
 import com.example.fastfoodapp.App.SessionManager;
 import com.example.fastfoodapp.Helper.ChangeNumberItemListener;
@@ -48,20 +50,23 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-public class MyOrder extends AppCompatActivity {
+public class MyOrder extends AppCompatActivity implements Custom_dialogVoucher.ExampleDialogListener{
 
     private static final String TAG = MyOrder.class.getSimpleName();
 
     ActivityMyOrderBinding binding;
 
-    LinearLayout btnAddress, btnCheckOut;
-    TextView tvPhiGH, tenkh, sdtkh, diachi, diachicuthe;
-    TextView tvTongOrder, txtEmpty,tvOrder;
+    LinearLayout btnAddress, btnCheckOut,voucher;
+    TextView  tenkh, sdtkh, diachi, diachicuthe,tvtenVoucher;
+    TextView tvTongOrder, txtEmpty,tvOrder,tvTienHang,tvVoucher,tvPhiGH;
+    String TenGG,MaGG;
 
     private RecyclerView.Adapter adapter;
     private RecyclerView recyclerViewList;
     private ManagementCard managementCard;
-    String tong_format;
+    String tong_format,tienhang_format,voucher_format;
+    RequestQueue requestQueue;
+    ChangeNumberItemListener changeNumberItemListener;
 
     String[] dayOfWeek = {"Thanh toán khi nhận hàng", "Khác..."};
 
@@ -69,6 +74,7 @@ public class MyOrder extends AppCompatActivity {
     SessionManager sessionManager;
     String url = Utils.BASE_URL + "Android/profile/read_detail.php";
     String url_order = Utils.BASE_URL + "Android/Order.php";
+    String url_voucher = Utils.BASE_URL + "Android/Voucher.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +96,10 @@ public class MyOrder extends AppCompatActivity {
         init();
         cainaylaNut();
         initList();
+
+        tienhang_format = NumberFormat.getNumberInstance(Locale.US).format(managementCard.getTotalFee());
+        tvTienHang.setText(tienhang_format);
+
         CalculateCard();
 
         Spinner MySpinner2 = (Spinner) findViewById(R.id.spinnerDC);
@@ -117,11 +127,19 @@ public class MyOrder extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_more,menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
     private void CalculateCard() {
 
-        int Tong = managementCard.getTotalFee() + 15000;
+        int Tong = managementCard.getTotalFee() + 15000 - Utils.giatriVoucher;
         tong_format = NumberFormat.getNumberInstance(Locale.US).format(Tong);
         tvTongOrder.setText(tong_format + "đ");
+
     }
 
     //getDetail
@@ -243,6 +261,8 @@ public class MyOrder extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MyOrder.this, Address.class));
+                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+
             }
         });
         btnCheckOut = (LinearLayout) findViewById(R.id.btnCheckOut);
@@ -265,6 +285,76 @@ public class MyOrder extends AppCompatActivity {
                 NewOrder(getId,Str_DonGia,Str_CTDH);
             }
         });
+
+        voucher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openDialog();
+            }
+        });
+    }
+
+    public void openDialog() {
+        Custom_dialogVoucher exampleDialog = new Custom_dialogVoucher();
+        exampleDialog.show(getSupportFragmentManager(), "example dialog");
+    }
+
+    @Override
+    public void applyTexts(String voucher) {
+
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Loading...");
+        progressDialog.show();
+
+        StringRequest request = new StringRequest(Request.Method.POST, url_voucher, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                progressDialog.dismiss();
+                Log.i(TAG,response.toString());
+
+                try {
+                    JSONArray jsonArray = new JSONArray(response);
+                    for (int i=0;i<jsonArray.length();i++){
+                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+
+                        MaGG = jsonObject.getString("maGG");
+                        TenGG = jsonObject.getString("tenGG");
+                        Utils.giatriVoucher = jsonObject.getInt("giatriGG");
+
+                        tvtenVoucher.setText(TenGG);
+
+                        voucher_format = NumberFormat.getNumberInstance(Locale.US).format(Utils.giatriVoucher);
+                        tvVoucher.setText("- " + voucher_format + "đ");
+
+                        CalculateCard();
+
+
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    progressDialog.dismiss();
+                    Toast.makeText(MyOrder.this, "Error"+ e.toString(), Toast.LENGTH_LONG).show();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                progressDialog.dismiss();
+                Toast.makeText(MyOrder.this, "Error"+ error.toString(), Toast.LENGTH_LONG).show();            }
+        }
+        ){
+            @Nullable
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> param = new HashMap<>();
+                param.put("maGG",voucher);
+
+                return param;
+            }
+        };
+        requestQueue = Volley.newRequestQueue(MyOrder.this);
+        requestQueue.add(request);
     }
 
     public void init() {
@@ -276,6 +366,19 @@ public class MyOrder extends AppCompatActivity {
         txtEmpty = findViewById(R.id.emptyTxt);
         tvOrder = findViewById(R.id.tvOrder);
         recyclerViewList = findViewById(R.id.recOrder);
-        tvPhiGH = findViewById(R.id.phiGH);
+        tvPhiGH = findViewById(R.id.tvVanChuyen);
+        voucher = findViewById(R.id.Voucher);
+        tvtenVoucher = findViewById(R.id.tenVoucher);
+        tvVoucher = findViewById(R.id.tvVoucher);
+        tvTienHang = findViewById(R.id.tvTienhang);
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
+
+        return true;
+    }
+
 }
