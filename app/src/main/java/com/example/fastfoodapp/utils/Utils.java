@@ -12,7 +12,9 @@ import java.util.List;
 public class Utils {
 
     public static final String BASE_URL="http://192.168.56.1:8080/";
-    public static String getId = null;
+    public static String getId = "";
+    public static  String GET_NAME= "Pham Thanh Tam";
+    public static  String GET_IMG= "";
     public static int giatriVoucher;
 
 

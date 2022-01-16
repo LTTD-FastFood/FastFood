@@ -112,6 +112,9 @@ public class Signin extends AppCompatActivity {
                             String id = object.getString("id").trim();
                             Utils.getId  = object.getString("id").trim();
 
+                            Utils.GET_NAME = name ;
+                            Utils.GET_IMG= Utils.BASE_URL + object.getString("photo").trim();
+
                             sessionManager.createSession(name,email,phone,dateofbirth,id);
                             sessionManager.createSession2(name,phone,address,addressSpecific,id);
 

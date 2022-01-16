@@ -1,6 +1,7 @@
 package com.example.fastfoodapp.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ComponentActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
@@ -10,6 +11,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
@@ -21,6 +23,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
 import com.example.fastfoodapp.Adapter.MonAnListAdapter;
 import com.example.fastfoodapp.Adapter.PhoBienAdapter;
 import com.example.fastfoodapp.Adapter.PhotoAdapter;
@@ -62,7 +65,11 @@ public class Home extends AppCompatActivity {
     };
 
 
+
+
     String urlBase= Utils.BASE_URL;
+    String name= Utils.GET_NAME;
+    String imgPro= Utils.GET_IMG;
     String url = Utils.BASE_URL+"Android/list_product/producttop.php";
 
     PhoBienAdapter phoBienAdapter;
@@ -72,8 +79,8 @@ public class Home extends AppCompatActivity {
     RequestQueue requestQueue;
     ArrayList<MonAn> monAnList;
 
-    CircleImageView profile_image;
-    TextView myCart;
+    CircleImageView profile_imageHome;
+    TextView myCart,tvuserName;
     RelativeLayout btnProfile,btnHistory,btnProduct;
 
     @Override
@@ -84,6 +91,18 @@ public class Home extends AppCompatActivity {
         cainaylaNut();
         monAnList = new ArrayList<>();
         recyclerView = findViewById(R.id.lvmonanhome);
+
+        tvuserName = findViewById(R.id.tvuserName);
+        profile_imageHome = findViewById(R.id.profile_imageHome);
+
+        Log.d("nameahihi", Utils.GET_NAME);
+
+        tvuserName.setText(Utils.GET_NAME);
+        Glide.with(Home.this)
+                .load(Utils.GET_IMG)
+                .into(profile_imageHome);
+
+
         recyclerView.setHasFixedSize(true);
         layoutManager =new LinearLayoutManager(Home.this,RecyclerView.VERTICAL,false);
         recyclerView.setLayoutManager(layoutManager);
@@ -253,8 +272,8 @@ public class Home extends AppCompatActivity {
         });
 
 
-        profile_image=(CircleImageView) findViewById(R.id.profile_imageHome);
-        profile_image.setOnClickListener(new View.OnClickListener() {
+        profile_imageHome=(CircleImageView) findViewById(R.id.profile_imageHome);
+        profile_imageHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Home.this, Profile.class));

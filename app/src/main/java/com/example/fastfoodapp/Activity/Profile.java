@@ -145,7 +145,7 @@ public class Profile extends AppCompatActivity {
     }
 
     //getDetail
-    private void getUserDetail(){
+    public  void getUserDetail(){
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading...");
         progressDialog.show();
@@ -170,6 +170,8 @@ public class Profile extends AppCompatActivity {
                             String F_phone = object.getString("phone").trim();
                             String F_dateofbirth = object.getString("dateofbirth").trim();
                             String F_img = Utils.BASE_URL + object.getString("photo").trim();
+                            Utils.GET_NAME = object.getString("name").trim();
+                            Utils.GET_IMG= Utils.BASE_URL + object.getString("photo").trim();
 
                             name.setText(F_name);
                             mail.setText(F_email);
