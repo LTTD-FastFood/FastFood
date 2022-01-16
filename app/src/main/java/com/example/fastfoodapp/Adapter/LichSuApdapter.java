@@ -16,6 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.fastfoodapp.Activity.MyCart;
 import com.example.fastfoodapp.Activity.ShowDetail;
 import com.example.fastfoodapp.Helper.ManagementCard;
 import com.example.fastfoodapp.Model.LichSu;
@@ -78,11 +79,21 @@ public class LichSuApdapter extends RecyclerView.Adapter<LichSuApdapter.ViewHold
             @Override
             public void onClick(View view) {
 
-//                MonAn object;
-//                object = monAnList.get(position);
-//                managementCard = new ManagementCard(context);
-//                object.setNumberInCard(numberOrder);
-//                managementCard.insertFood(object);
+                MonAn getMonAnAdapter = new MonAn();
+                getMonAnAdapter.setHinhMon(lichSuArrayList.get(position).getImgFood());
+                getMonAnAdapter.setTenMon(lichSuArrayList.get(position).getNameFood());
+                getMonAnAdapter.setGia(lichSuArrayList.get(position).getGiaSP());
+                getMonAnAdapter.setMaSP(lichSuArrayList.get(position).getMaSP());
+
+
+
+
+                managementCard = new ManagementCard(context);
+                getMonAnAdapter.setNumberInCard(numberOrder);
+                managementCard.insertFood(getMonAnAdapter);
+
+                Intent intent = new Intent(context, MyCart.class);
+                context.startActivity(intent);
 
             }
         });
@@ -102,6 +113,7 @@ public class LichSuApdapter extends RecyclerView.Adapter<LichSuApdapter.ViewHold
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+
             tvNameHis = (TextView) itemView.findViewById(R.id.tenMonHis);
             tvSoluongHis = (TextView) itemView.findViewById(R.id.soluongHis);
             tvDonGiaHis = (TextView) itemView.findViewById(R.id.dongiaHis);

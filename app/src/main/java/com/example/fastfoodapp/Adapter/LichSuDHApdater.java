@@ -3,6 +3,7 @@ package com.example.fastfoodapp.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +26,7 @@ public class LichSuDHApdater extends RecyclerView.Adapter<LichSuDHApdater.ViewHo
 
     Context context;
     ArrayList<LichSuDH> lichSuDHArrayList;
-    ArrayList<MonAn> monAnList;
+//    ArrayList<MonAn> monAnList;
     String gia_format;
 
     ManagementCard managementCard;
@@ -47,22 +48,25 @@ public class LichSuDHApdater extends RecyclerView.Adapter<LichSuDHApdater.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         LichSuDH lichSuDH = lichSuDHArrayList.get(position);
-
         holder.MaHD.setText("HD000".concat(String.valueOf(lichSuDH.getMaHD())));
         holder.NgayBan.setText(String.valueOf(lichSuDH.getNgayBan()));
         String dongia_format = NumberFormat.getNumberInstance(Locale.US).format(lichSuDH.getDonGia());
         holder.DonGia.setText(dongia_format + "đ");
+        holder.HoTen.setText(lichSuDH.getTenKH());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Intent intent = new Intent(context, HistoryDetails.class);
-                intent.putExtra("detailOrder", lichSuDHArrayList.get(position));
+                intent.putExtra("detailOrder",lichSuDH);
+
                 context.startActivity(intent);
+
+
 
             }
         });
+
     }
 
 

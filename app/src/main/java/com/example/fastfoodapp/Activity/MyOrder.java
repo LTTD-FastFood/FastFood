@@ -60,6 +60,9 @@ public class MyOrder extends AppCompatActivity implements Custom_dialogVoucher.E
     TextView  tenkh, sdtkh, diachi, diachicuthe,tvtenVoucher;
     TextView tvTongOrder, txtEmpty,tvOrder,tvTienHang,tvVoucher,tvPhiGH;
     String TenGG,MaGG;
+    int Tong=0;
+    int voucherTotal=0;
+
 
     private RecyclerView.Adapter adapter;
     private RecyclerView recyclerViewList;
@@ -136,9 +139,9 @@ public class MyOrder extends AppCompatActivity implements Custom_dialogVoucher.E
 
     private void CalculateCard() {
 
-        int Tong = managementCard.getTotalFee() + 15000 - Utils.giatriVoucher;
-        tong_format = NumberFormat.getNumberInstance(Locale.US).format(Tong);
-        tvTongOrder.setText(tong_format + "đ");
+         Tong = managementCard.getTotalFee() + 15000  - voucherTotal;
+         tong_format = NumberFormat.getNumberInstance(Locale.US).format(Tong);
+         tvTongOrder.setText(tong_format + "đ");
 
     }
 
@@ -277,9 +280,9 @@ public class MyOrder extends AppCompatActivity implements Custom_dialogVoucher.E
             @Override
             public void onClick(View view) {
 
-                Log.d("test",new Gson().toJson(managementCard.getListCard()));
 
-                String Str_DonGia=String.valueOf(managementCard.getTotalFee());
+
+                String Str_DonGia=String.valueOf(managementCard.getTotalFee() + 15000 - voucherTotal);
                 String Str_CTDH=new Gson().toJson(managementCard.getListCard());
 
                 NewOrder(getId,Str_DonGia,Str_CTDH);
@@ -319,11 +322,11 @@ public class MyOrder extends AppCompatActivity implements Custom_dialogVoucher.E
 
                         MaGG = jsonObject.getString("maGG");
                         TenGG = jsonObject.getString("tenGG");
-                        Utils.giatriVoucher = jsonObject.getInt("giatriGG");
+                        voucherTotal = jsonObject.getInt("giatriGG");
 
                         tvtenVoucher.setText(TenGG);
 
-                        voucher_format = NumberFormat.getNumberInstance(Locale.US).format(Utils.giatriVoucher);
+                        voucher_format = NumberFormat.getNumberInstance(Locale.US).format(voucherTotal);
                         tvVoucher.setText("- " + voucher_format + "đ");
 
                         CalculateCard();

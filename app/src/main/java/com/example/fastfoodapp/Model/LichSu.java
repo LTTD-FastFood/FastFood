@@ -8,7 +8,26 @@ public class LichSu implements Serializable {
    private String nameFood;
    private int soluong;
    private int donGia;
-   private String ngayMua;
+   private int giaSP;
+   private int maSP;
+
+    public int getMaSP() {
+        return maSP;
+    }
+
+    public void setMaSP(int maSP) {
+        this.maSP = maSP;
+    }
+
+    public int getGiaSP() {
+        return giaSP;
+    }
+
+    public void setGiaSP(int giaSP) {
+        this.giaSP = giaSP;
+    }
+
+    private String ngayMua;
 
     public String getImgFood() {
         return imgFood;

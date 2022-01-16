@@ -79,20 +79,22 @@ public class HistoryDetails extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar3);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+
+        final Object object = getIntent().getSerializableExtra("detailOrder");
+        if (object instanceof LichSuDH) {
+            lichSuDH = (LichSuDH) object;
+        }
+
 
         sessionManager = new SessionManager(this);
         HashMap<String, String> user = sessionManager.getUserDetail();
         getId = user.get(sessionManager.ID);
 
-        final Object object = getIntent().getSerializableExtra("detailOrder");
-        Log.d("donhangdsds", lichSuDH.toString());
-        if (object instanceof LichSuDH) {
-            lichSuDH = (LichSuDH) object;
-            Log.d("donhangdsds", lichSuDH.toString());
-        }
+
 
          MaHD= lichSuDH.getMaHD() +"";
+
 //        TenKH = (TextView) findViewById(R.id.TenKH);
 //        SDT = (TextView) findViewById(R.id.SDT);
 //        TongTien = (TextView) findViewById(R.id.TongTien);
@@ -116,6 +118,7 @@ public class HistoryDetails extends AppCompatActivity {
                 try {
                     JSONArray j = new JSONArray(response);
 
+                    Log.d("vv", j.toString());
                     for (int i = 0; i < j.length(); i++) {
 
                         JSONObject jsonObject = null;
@@ -125,18 +128,31 @@ public class HistoryDetails extends AppCompatActivity {
 
                         LichSu getLichSuAdapter = new LichSu();
 
-                        getLichSuAdapter.setImgFood(jsonObject.getString("imgFood"));
-
-                        getLichSuAdapter.setDonGia(jsonObject.getInt("DonGia"));
+                        getLichSuAdapter.setImgFood(urlBase.concat(jsonObject.getString("imgFood")));
+//
+                        getLichSuAdapter.setDonGia(jsonObject.getInt("GiaTong"));
                         getLichSuAdapter.setSoluong(jsonObject.getInt("SoLuong"));
                         getLichSuAdapter.setNameFood(jsonObject.getString("nameFood"));
+                        getLichSuAdapter.setNgayMua(jsonObject.getString("NgayBan"));
+                        getLichSuAdapter.setGiaSP(jsonObject.getInt("price"));
+                        getLichSuAdapter.setMaSP(jsonObject.getInt("id_food"));
+
 
                         lichsuList.add(getLichSuAdapter);
+                        Log.d("vvf", lichsuList.toString());
+//                        private String imgFood;
+//                        private String nameFood;
+//                        private int soluong;
+//                        private int donGia;
+//                        private String ngayMua;
+
+
 
                     }
                 }catch (JSONException e) {
                     e.printStackTrace();
                 }
+
                 lichSuApdapter = new LichSuApdapter(HistoryDetails.this, lichsuList);
                 recyclerView.setAdapter(lichSuApdapter);
             }
